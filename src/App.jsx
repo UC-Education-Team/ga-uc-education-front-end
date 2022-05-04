@@ -13,6 +13,7 @@ import Quizzes from './pages/Quizzes/Quizzes'
 
 
 const App = () => {
+  const [modules, setModules] = useState([])
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
@@ -50,6 +51,7 @@ const App = () => {
         <Route
           path="/modules"
           element={<ModulesView />}
+          modules={modules}
         />
         <Route
           path="/lessons"

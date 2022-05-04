@@ -1,11 +1,15 @@
 import React from "react";
 import styles from "./Module.module.css";
+import ModuleCard from "../ModuleCard/ModuleCard";
 
 const Modules = () => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.columnmodules}>Core Modules</div>
+        <div className={styles.columnmodules}>
+          <p>Core Modules</p>
+          <ModuleCard />
+        </div>
 
         <div className={styles.columnlessons}>Core modules > Lessons</div>
 
