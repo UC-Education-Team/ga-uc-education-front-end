@@ -7,7 +7,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
-import Modules from './pages/Modules/Modules'
+import ModulesView from './pages/Modules-View/Modules-View'
 import Lessons from './pages/Lessons/Lessons'
 import Quizzes from './pages/Quizzes/Quizzes'
 
@@ -49,7 +49,7 @@ const App = () => {
         />
         <Route
           path="/modules"
-          element={<Modules />}
+          element={<ModulesView />}
         />
         <Route
           path="/lessons"
