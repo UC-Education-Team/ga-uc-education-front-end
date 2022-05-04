@@ -19,7 +19,7 @@ const Signup = (props) => {
           <div className="logo"></div>
           <h1>Sign Up</h1>
         </div>
-        <p>{message}</p>
+        <p className="mx-auto">{message}</p>
         <SignupForm {...props} updateMessage={updateMessage} />
         <div>
           
