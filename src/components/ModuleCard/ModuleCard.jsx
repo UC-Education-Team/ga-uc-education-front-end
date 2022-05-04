@@ -4,7 +4,12 @@ import React from 'react'
 
 const ModuleCard = (props) => {
   return (
-    <div></div>
+    <>
+      <div className={styles.modulecard}>
+        <p>{console.log('yo', props)}</p>
+        <p>yo</p>
+      </div>
+    </>
   )
 }
 

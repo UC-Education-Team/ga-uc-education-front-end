@@ -30,8 +30,8 @@ const App = () => {
 
   useEffect(() => {
     moduleService.getAll()
-    .then(allModules => setModules(allModules))
-  })
+    .then(allModules => console.log('allModules', allModules))
+  }, [])
 
   return (
     <>
