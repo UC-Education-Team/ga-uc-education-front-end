@@ -30,7 +30,7 @@ const App = () => {
 
   useEffect(() => {
     moduleService.getAll()
-    .then(allModules => console.log('allModules', allModules))
+    .then(allModules => setModules(allModules))
   }, [])
 
   return (
@@ -56,9 +56,9 @@ const App = () => {
         />
         <Route
           path="/modules"
-          element={<ModulesView />}
+          element={<ModulesView 
           modules={modules}
-        />
+        />} />
         <Route
           path="/lessons"
           element={<Lessons />}
