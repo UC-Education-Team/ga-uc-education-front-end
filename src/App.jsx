@@ -51,14 +51,19 @@ const App = () => {
           path="/modules"
           element={<Modules />}
         />
-        {/* <Route
+         <Route
           path="/lessons"
           element={<Lessons />}
         />
         <Route
           path="/quizzes"
           element={<Quizzes />}
-        /> */}
+        />
+         <Route
+          path="/landing"
+          element={user ? <Landing /> : <Navigate to="/login" />}
+          />
+        />
       </Routes>
     </>
   )
