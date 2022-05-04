@@ -7,4 +7,4 @@ function getAll() {
 
 export {
   getAll
-}
+} 
