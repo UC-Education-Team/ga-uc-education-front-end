@@ -19,6 +19,7 @@ body {
 
 .modulerow {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
 }
 
