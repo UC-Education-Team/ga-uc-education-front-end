@@ -8,8 +8,12 @@ const Modules = ({modules}) => {
       <div className={styles.container}>
         <div className={styles.columnmodules}>
           <p>Core Modules</p>
-          {console.log('props', props.modules)}
-          <ModuleCard />
+          {modules.map(module => {
+          return <p>{module.name}</p>
+          <ModuleCard
+          modules={module}
+          />
+        })}
         </div>
 
         <div className={styles.columnlessons}>Core modules > Lessons</div>

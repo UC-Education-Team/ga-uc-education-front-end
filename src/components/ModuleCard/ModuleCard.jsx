@@ -6,8 +6,7 @@ const ModuleCard = ({modules}) => {
   return (
     <>
       <div className={styles.modulecard}>
-        <p>{console.log('yo', modules)}</p>
-        <p>{modules}</p>
+
       </div>
     </>
   )
