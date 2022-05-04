@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-function CreateQuiz(props) {
+function CreateQuiz({ createModule }) {
 
   const [formData, setFormData] = useState({ name: '' })
   const [validForm, setValidForm] = useState(false)
@@ -28,7 +28,7 @@ function CreateQuiz(props) {
           id='name'
           required
         />
-        <button disabled={!validForm} type="submit">Create Lesson</button>
+        <button disabled={!validForm} type="submit">Create Module</button>
       </form>
     </div>
   );

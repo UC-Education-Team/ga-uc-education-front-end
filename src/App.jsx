@@ -13,6 +13,7 @@ import Quizzes from './pages/Quizzes/Quizzes'
 import CreateModule from './pages/CreateModule/CreateModule'
 import CreateQuiz from './pages/CreateQuiz/CreateQuiz'
 import CreateLesson from './pages/CreateLesson/CreateLesson'
+import * as moduleService from './services/moduleService'
 
 
 const App = () => {
@@ -27,6 +28,10 @@ const App = () => {
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
+  }
+
+  const newModule = () => {
+
   }
 
   return (
@@ -64,7 +69,7 @@ const App = () => {
         />
         <Route
           path="/create-module"
-          element={<CreateModule />}
+          element={<CreateModule CreateModule={newModule} />}
         />
         <Route
           path="/create-lesson"

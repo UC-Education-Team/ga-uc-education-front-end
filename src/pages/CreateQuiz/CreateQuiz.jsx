@@ -13,12 +13,12 @@ function CreateQuiz(props) {
   }
 
   function correctAnswer(e) {
-    setCorrectAnswers({ ...correctAnswers, [e.target.id]: e.target.name })
+    setCorrectAnswers({ ...correctAnswers, [e.target.id]: e.target.value })
     console.log(question1Options)
     question1Options.current.childNodes.forEach(node => (
-      node.localName === 'input' ? node.style.border = '1px solid black' : console.log(node.localName)
+      node.name === e.target.name ? e.target.style.border = 'green solid 3px' : e.target.style.border = 'black 1px black'
     ))
-    e.target.style.border = '4px solid green'
+    console.log(e.target.parent)
   }
 
   useEffect(() => {
@@ -45,13 +45,19 @@ function CreateQuiz(props) {
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
-                onDoubleClick={correctAnswer}
                 name={`${ltr}`}
                 id="question1"
                 type="text" />
             </>
           ))}
         </div>
+        <input type="radio" id="question1" value="a" name="question1A" onChange={correctAnswer} /> Option A
+
+        <input type="radio" id="question1" value="b" name="question1B" onChange={correctAnswer} /> Option B
+
+        <input type="radio" id="question1" value="c" name="question1C" onChange={correctAnswer} /> Option C
+
+        <input type="radio" id="question1" value="d" name="question1D" onChange={correctAnswer} /> Option D
 
         {/* Question 2 */}
         <p>Question 2</p>
@@ -72,7 +78,7 @@ function CreateQuiz(props) {
                 onChange={handleChange}
                 onDoubleClick={correctAnswer}
                 name={`${ltr}`}
-                id="question1"
+                id="question2"
                 type="text" />
             </>
           ))}
@@ -97,7 +103,7 @@ function CreateQuiz(props) {
                 onChange={handleChange}
                 onDoubleClick={correctAnswer}
                 name={`${ltr}`}
-                id="question1"
+                id="question3"
                 type="text" />
             </>
           ))}
@@ -122,7 +128,7 @@ function CreateQuiz(props) {
                 onChange={handleChange}
                 onDoubleClick={correctAnswer}
                 name={`${ltr}`}
-                id="question1"
+                id="question4"
                 type="text" />
             </>
           ))}
@@ -147,7 +153,7 @@ function CreateQuiz(props) {
                 onChange={handleChange}
                 onDoubleClick={correctAnswer}
                 name={`${ltr}`}
-                id="question1"
+                id="question5"
                 type="text" />
             </>
           ))}
