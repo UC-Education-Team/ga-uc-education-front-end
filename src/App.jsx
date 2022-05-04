@@ -51,7 +51,7 @@ const App = () => {
           path="/modules"
           element={<Modules />}
         />
-        <Route
+         <Route
           path="/lessons"
           element={<Lessons />}
         />
