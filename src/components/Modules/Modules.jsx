@@ -10,10 +10,16 @@ const Modules = ({ modules }) => {
         <div className={styles.columnmodules}>
           <p>Core Modules</p>
           {modules.map((module) => {
-            return <Link to="/" key={module._id} state={{ module }}>
-
-            <ModuleCard modules={module} />
-            </Link>;
+            return (
+              <Link
+                to="/"
+                key={module._id}
+                style={{ textDecoration: "none" }}
+                state={{ module }}
+              >
+                <ModuleCard modules={module} />
+              </Link>
+            );
           })}
         </div>
 

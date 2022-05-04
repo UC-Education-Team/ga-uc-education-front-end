@@ -1,7 +1,8 @@
 .modulecard {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 2rem 5rem 2rem 5rem;
   text-decoration: none;
   border: 2px solid #dfdfdf;
   margin: 1% 0 1% 0;
