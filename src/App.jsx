@@ -10,6 +10,9 @@ import * as authService from './services/authService'
 import Modules from './pages/Modules/Modules'
 import Lessons from './pages/Lessons/Lessons'
 import Quizzes from './pages/Quizzes/Quizzes'
+import CreateModule from './pages/CreateModule/CreateModule'
+import CreateQuiz from './pages/CreateQuiz/CreateQuiz'
+import CreateLesson from './pages/CreateLesson/CreateLesson'
 
 
 const App = () => {
@@ -45,7 +48,7 @@ const App = () => {
         />
         <Route
           path="/changePassword"
-          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
+          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin} /> : <Navigate to="/login" />}
         />
         <Route
           path="/modules"
@@ -58,6 +61,18 @@ const App = () => {
         <Route
           path="/quizzes"
           element={<Quizzes />}
+        />
+        <Route
+          path="/create-module"
+          element={user ? <CreateModule /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/create-lesson"
+          element={user ? <CreateLesson /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/create-quiz"
+          element={user ? <CreateQuiz /> : <Navigate to="/login" />}
         />
       </Routes>
     </>
