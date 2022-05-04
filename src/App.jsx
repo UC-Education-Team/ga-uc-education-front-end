@@ -14,11 +14,16 @@ import CreateModule from './pages/CreateModule/CreateModule'
 import CreateQuiz from './pages/CreateQuiz/CreateQuiz'
 import CreateLesson from './pages/CreateLesson/CreateLesson'
 import * as moduleService from './services/moduleService'
+import * as quizService from './services/quizService'
+import * as lessonService from './services/lessonService'
+
 
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [modules, setModules] = useState([])
+  const [lessons, setLessons] = useState([])
+  const [quizzes, setQuizzes] = useState([])
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -32,9 +37,20 @@ const App = () => {
   }
 
   const newModule = async (_module) => {
-    console.log(_module)
     const newModule = await moduleService.createModule(_module)
     setModules([...modules, newModule])
+    navigate('/')
+  }
+
+  const newLesson = async (lesson) => {
+    const newLesson = await lessonService.createModule(lesson)
+    setLessons([...lessons, newLesson])
+    navigate('/')
+  }
+
+  const newQuiz = async (quiz) => {
+    const newQuiz = await quizService.createModule(quiz)
+    setQuizzes([...quizzes, newQuiz])
     navigate('/')
   }
 
