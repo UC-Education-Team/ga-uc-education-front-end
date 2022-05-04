@@ -4,12 +4,12 @@ import styles from "./Modules.module.css";
 const Modules = () => {
   return (
     <>
-      <div class="container">
-        <div class="column-modules">Core Modules</div>
+      <div className={styles.container}>
+        <div className={styles.columnmodules}>Core Modules</div>
 
-        <div class="column0-lessons">Core modules > Lessons</div>
+        <div className={styles.columnlessons}>Core modules > Lessons</div>
 
-        <div class="column-learn">Learn about</div>
+        <div className={styles.columnlearn}>Learn about</div>
       </div>
     </>
   );
