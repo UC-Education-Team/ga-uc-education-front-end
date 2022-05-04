@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
@@ -7,7 +7,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
-import Modules from './pages/Modules/Modules'
+import ModulesView from './pages/Modules-View/Modules-View'
 import Lessons from './pages/Lessons/Lessons'
 import Quizzes from './pages/Quizzes/Quizzes'
 import CreateModule from './pages/CreateModule/CreateModule'
@@ -17,9 +17,8 @@ import * as moduleService from './services/moduleService'
 import * as quizService from './services/quizService'
 import * as lessonService from './services/lessonService'
 
-
-
 const App = () => {
+  const [modules, setModules] = useState([])
   const [user, setUser] = useState(authService.getUser())
   const [modules, setModules] = useState([])
   const [lessons, setLessons] = useState([])
@@ -53,6 +52,10 @@ const App = () => {
     setQuizzes([...quizzes, newQuiz])
     navigate('/')
   }
+  useEffect(() => {
+    moduleService.getAll()
+      .then(allModules => setModules(allModules))
+  }, [])
 
   return (
     <>
@@ -77,8 +80,9 @@ const App = () => {
         />
         <Route
           path="/modules"
-          element={<Modules />}
-        />
+          element={<ModulesView
+            modules={modules}
+          />} />
         <Route
           path="/lessons"
           element={<Lessons />}
@@ -97,9 +101,12 @@ const App = () => {
         />
         <Route
           path="/create-quiz"
-          element={<CreateQuiz />}
+          element={<CreateQuiz />} />
+        <Route
+          path="/landing"
+          element={user ? <Landing /> : <Navigate to="/login" />}
         />
-      </Routes>
+      </Routes >
     </>
   )
 }

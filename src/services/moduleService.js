@@ -12,3 +12,12 @@ export async function createModule(_module) {
   })
   return newModule.json()
 }
+
+function getAll() {
+  return fetch(BASE_URL)
+    .then(res => res.json())
+}
+
+export {
+  getAll
+} 
