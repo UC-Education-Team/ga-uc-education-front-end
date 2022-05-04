@@ -17,7 +17,7 @@ const Signup = (props) => {
       <Card className="signUpCard">
         <div className="header">
           <div className="logo"></div>
-          <h1>Entrepreneur Sign Up</h1>
+          <h1>Sign Up</h1>
         </div>
         <p>{message}</p>
         <SignupForm {...props} updateMessage={updateMessage} />
