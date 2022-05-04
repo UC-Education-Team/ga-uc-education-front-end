@@ -64,15 +64,15 @@ const App = () => {
         />
         <Route
           path="/create-module"
-          element={user ? <CreateModule /> : <Navigate to="/login" />}
+          element={<CreateModule />}
         />
         <Route
           path="/create-lesson"
-          element={user ? <CreateLesson /> : <Navigate to="/login" />}
+          element={<CreateLesson />}
         />
         <Route
           path="/create-quiz"
-          element={user ? <CreateQuiz /> : <Navigate to="/login" />}
+          element={<CreateQuiz />}
         />
       </Routes>
     </>
