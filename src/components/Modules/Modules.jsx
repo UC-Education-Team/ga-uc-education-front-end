@@ -1,19 +1,20 @@
 import React from "react";
 import styles from "./Module.module.css";
+import { Link } from "react-router-dom";
 import ModuleCard from "../ModuleCard/ModuleCard";
 
-const Modules = ({modules}) => {
+const Modules = ({ modules }) => {
   return (
     <>
       <div className={styles.container}>
         <div className={styles.columnmodules}>
           <p>Core Modules</p>
-          {modules.map(module => {
-          return <p>{module.name}</p>
-          <ModuleCard
-          modules={module}
-          />
-        })}
+          {modules.map((module) => {
+            return <Link to="/" key={module._id} state={{ module }}>
+
+            <ModuleCard modules={module} />
+            </Link>;
+          })}
         </div>
 
         <div className={styles.columnlessons}>Core modules > Lessons</div>

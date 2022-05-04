@@ -6,7 +6,7 @@ const ModuleCard = ({modules}) => {
   return (
     <>
       <div className={styles.modulecard}>
-
+        <p>{modules.name}</p>
       </div>
     </>
   )
