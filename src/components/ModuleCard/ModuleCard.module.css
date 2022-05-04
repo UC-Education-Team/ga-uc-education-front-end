@@ -1,11 +1,11 @@
 .modulecard {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 2rem 5rem 2rem 5rem;
   text-decoration: none;
   border: 2px solid #dfdfdf;
   margin: 1% 0 1% 0;
-  border-radius: 10px;
+  border-radius: 5px;
   color: black;
 }

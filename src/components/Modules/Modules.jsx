@@ -7,20 +7,22 @@ const Modules = ({ modules }) => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.columnmodules}>
-          <p>Core Modules</p>
-          {modules.map((module) => {
-            return (
-              <Link
-                to="/"
-                key={module._id}
-                style={{ textDecoration: "none" }}
-                state={{ module }}
-              >
-                <ModuleCard modules={module} />
-              </Link>
-            );
-          })}
+      <div className={styles.columnmodules}>
+          <div className={styles.modulerow}>
+            <p>Core Modules</p>
+            {modules.map((module) => {
+              return (
+                <Link
+                  to="/"
+                  key={module._id}
+                  style={{ textDecoration: "none" }}
+                  state={{ module }}
+                >
+                  <ModuleCard modules={module} />
+                </Link>
+              );
+            })}
+          </div>
         </div>
 
         <div className={styles.columnlessons}>Core modules > Lessons</div>
