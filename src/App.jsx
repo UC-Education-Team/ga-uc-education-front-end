@@ -7,6 +7,10 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
+import Modules from './pages/Modules/Modules'
+import Lessons from './pages/Lessons/Lessons'
+import Quizzes from './pages/Quizzes/Quizzes'
+
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -42,6 +46,18 @@ const App = () => {
         <Route
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/modules"
+          element={<Modules />}
+        />
+        <Route
+          path="/lessons"
+          element={<Lessons />}
+        />
+        <Route
+          path="/quizzes"
+          element={<Quizzes />}
         />
       </Routes>
     </>

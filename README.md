@@ -1,5 +1,5 @@
 # Decoupled MERN Stack with JWT Auth Template - Front End
-Hello
+
 This is the front end of a decoupled MERN Stack app that includes JWT Authentication.
 
 When combined with the back end found [here](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end), you'll have all you need to build a full stack MERN app!
