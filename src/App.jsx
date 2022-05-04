@@ -59,6 +59,11 @@ const App = () => {
           path="/quizzes"
           element={<Quizzes />}
         />
+         <Route
+          path="/landing"
+          element={user ? <Landing /> : <Navigate to="/login" />}
+          />
+        />
       </Routes>
     </>
   )
