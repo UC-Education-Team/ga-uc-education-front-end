@@ -1,16 +1,46 @@
-.container {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-.label,
 .button {
-  margin-right: 0.5rem;
+  position: relative;
+  width: 208px;
+  height: 36px;
+  left: 99px;
+  top: 225px;
+  margin: 0 auto;
+  background: #AFAFAF;
+  border: 1px solid #181818;
+  box-sizing: border-box;
+  border-radius: 5px;
 }
 
-.inputContainer {
-  margin-bottom: 1rem;
+#usernameContainer {
+  position: relative;
+  width: 208px;
+  height: 36px;
+  left: 99px;
+  top: 173px;
+  margin: 0 auto;
+  border: 1px solid #181818;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+#passwordContainer {
+  position: relative;
+  width: 208px;
+  height: 36px;
+  left: 99px;
+  top: 199px;
+  margin: 0 auto;
+  border: 1px solid #181818;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+#redirectContainer {
+  position: relative;
+  font-size: 12px;
+  color: #838383;
+  width: 181px;
+  height: 48px;
+  left: 109px;
+  top: 240px;
 }
