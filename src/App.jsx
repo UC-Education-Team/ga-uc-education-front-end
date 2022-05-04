@@ -18,6 +18,7 @@ import * as moduleService from './services/moduleService'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [modules, setModules] = useState([])
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -30,8 +31,11 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  const newModule = () => {
-
+  const newModule = async (_module) => {
+    console.log(_module)
+    const newModule = await moduleService.createModule(_module)
+    setModules([...modules, newModule])
+    navigate('/')
   }
 
   return (
@@ -69,7 +73,7 @@ const App = () => {
         />
         <Route
           path="/create-module"
-          element={<CreateModule CreateModule={newModule} />}
+          element={<CreateModule createModule={newModule} />}
         />
         <Route
           path="/create-lesson"

@@ -1,23 +1,34 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-function CreateQuiz({ createModule }) {
-
+function CreateModule({ createModule }) {
+  // Constants & State
   const [formData, setFormData] = useState({ name: '' })
   const [validForm, setValidForm] = useState(false)
   const formElement = useRef()
+
+  // Event Handlers
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
     console.log(formData)
   }
 
+  function handleSubmit(e) {
+    console.log('here')
+    e.preventDefault()
+    console.log('Create Module: ', createModule)
+    return createModule(formData)
+  }
+
+  // Side Effects
   useEffect(() => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
   }, [validForm])
-  console.log(validForm)
+
+  //JSX
   return (
     <div>
       <h1>Create A Module Here</h1>
-      <form ref={formElement} onSubmit={() => console.log('submitted')}>
+      <form ref={formElement} onSubmit={handleSubmit}>
         {/* Module Name*/}
         <p>Name</p>
         <input
@@ -28,10 +39,10 @@ function CreateQuiz({ createModule }) {
           id='name'
           required
         />
-        <button disabled={!validForm} type="submit">Create Module</button>
+        <button disabled={false} type="submit">Create Module</button>
       </form>
     </div>
   );
 }
 
-export default CreateQuiz;
+export default CreateModule;
