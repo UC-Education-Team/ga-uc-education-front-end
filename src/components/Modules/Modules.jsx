@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Module.module.css";
 import ModuleCard from "../ModuleCard/ModuleCard";
 
-const Modules = (props) => {
+const Modules = ({modules}) => {
   return (
     <>
       <div className={styles.container}>
