@@ -7,7 +7,6 @@ const ModulesView = ({modules}) => {
   return (
     <>
     <Modules modules={modules} />
-    {/* <ModuleCard modules={modules} /> */}
     </>
   )
 }

@@ -7,9 +7,9 @@ const Modules = ({ modules }) => {
   return (
     <>
       <div className={styles.container}>
-      <div className={styles.columnmodules}>
-          <div className={styles.modulerow}>
+        <div className={styles.columnmodules}>
             <p>Core Modules</p>
+          <div className={styles.modulerow}>
             {modules.map((module) => {
               return (
                 <Link

@@ -14,13 +14,12 @@ body {
 
 .columnmodules {
   display: flex;
-  flex-direction: row;
-  color: black;
+  flex-direction: column;
 }
 
 .modulerow {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .columnlessons {
