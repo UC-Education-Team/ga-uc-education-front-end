@@ -4,16 +4,23 @@ function CreateQuiz(props) {
 
   const [formData, setFormData] = useState({ name: '' })
   const [validForm, setValidForm] = useState(false)
+  const [correctAnswers, setCorrectAnswers] = useState(false)
   const formElement = useRef()
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
     console.log(formData)
   }
 
+  function correctAnswer(e) {
+    setCorrectAnswers({ ...correctAnswers, [e.target.id]: e.target.className })
+    e.target.className === 'true' ? e.target.className = 'false' : e.target.className = 'true'
+    console.log(correctAnswers)
+  }
+
   useEffect(() => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
   }, [validForm])
-  console.log(validForm)
+
   return (
     <div>
       <h1>This is a quiz</h1>
@@ -22,12 +29,18 @@ function CreateQuiz(props) {
         <p>Question 1</p>
         <textarea
           required
-          name="question1"
+          name="a"
           id="question1"
           cols="40"
           rows="3"
           onChange={handleChange}
         >{formData.question1}</textarea>
+        <input
+          onChange={handleChange}
+          onDoubleClick={correctAnswer}
+          className='0'
+          id="question1"
+          type="text" />
 
         <p>Question 2</p>
         <textarea
