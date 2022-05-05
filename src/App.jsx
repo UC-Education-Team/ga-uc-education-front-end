@@ -55,7 +55,8 @@ const App = () => {
     setQuizzes([...quizzes, newQuiz])
     navigate('/')
   }
-  useEffect(() => {
+
+  useEffect( async () => {
     moduleService.getAll()
       .then(allModules => setModules(allModules))
   }, [])

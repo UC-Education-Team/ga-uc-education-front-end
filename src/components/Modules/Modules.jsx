@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ModuleCard from "../ModuleCard/ModuleCard";
 
 const Modules = ({ modules }) => {
+  console.log(modules)
   return (
     <>
       <div className={styles.container}>
@@ -25,7 +26,7 @@ const Modules = ({ modules }) => {
           </div>
         </div>
 
-        <div className={styles.columnlessons}>Core modules > Lessons</div>
+        <div className={styles.columnlessons}>Core modules {'>'} Lessons</div>
 
         <div className={styles.columnlearn}>Learn about</div>
       </div>
