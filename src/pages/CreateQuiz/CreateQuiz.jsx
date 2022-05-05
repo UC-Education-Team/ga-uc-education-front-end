@@ -2,18 +2,30 @@ import React, { useState, useEffect, useRef } from 'react';
 
 function CreateQuiz({ createQuiz }) {
 
-  const [formData, setFormData] = useState({ name: '' })
+  const [formData, setFormData] = useState({})
   const [validForm, setValidForm] = useState(false)
-  const [correctAnswers, setCorrectAnswers] = useState(false)
+  const [correctAnswers, setCorrectAnswers] = useState({})
   const formElement = useRef()
   const question1Options = useRef()
+  const question2Options = useRef()
+  const question3Options = useRef()
+  const question4Options = useRef()
+  const question5Options = useRef()
+
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    console.log(formData)
   }
 
   function correctAnswer(e) {
+    let questionSet;
     setCorrectAnswers({ ...correctAnswers, [e.target.id]: e.target.name })
-    question1Options.current.childNodes.forEach(div => {
+    if (e.target.className === '1') { questionSet = question1Options }
+    if (e.target.className === '2') { questionSet = question2Options }
+    if (e.target.className === '3') { questionSet = question3Options }
+    if (e.target.className === '4') { questionSet = question4Options }
+    if (e.target.className === '5') { questionSet = question5Options }
+    questionSet.current.childNodes.forEach(div => {
       div.childNodes[1].style.border = 'black 1px solid'
     })
     e.target.style.border = 'green 2px solid'
@@ -21,7 +33,17 @@ function CreateQuiz({ createQuiz }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    return createQuiz(formData)
+    let q1Data, q2Data, q3Data, q4Data, q5Data;
+    for (const data in formData) {
+      if (data.includes('1')) q1Data ? q1Data = { ...q1Data, [data]: formData[data] } : q1Data = { [data]: formData[data] }
+      if (data.includes('2')) q2Data ? q2Data = { ...q2Data, [data]: formData[data] } : q2Data = { [data]: formData[data] }
+      if (data.includes('3')) q3Data ? q3Data = { ...q3Data, [data]: formData[data] } : q3Data = { [data]: formData[data] }
+      if (data.includes('4')) q4Data ? q4Data = { ...q4Data, [data]: formData[data] } : q4Data = { [data]: formData[data] }
+      if (data.includes('5')) q5Data ? q5Data = { ...q5Data, [data]: formData[data] } : q5Data = { [data]: formData[data] }
+    }
+    console.log(correctAnswers)
+    let questionData = [q1Data, q2Data, q3Data, q4Data, q5Data]
+    return createQuiz({ questions: questionData, answers: [correctAnswers] })
   }
 
   useEffect(() => {
@@ -32,6 +54,7 @@ function CreateQuiz({ createQuiz }) {
     <div>
       <h1>This is a quiz</h1>
       <form ref={formElement} onSubmit={handleSubmit}>
+
         {/* Question 1 */}
         <p>Question 1</p>
         <textarea
@@ -49,9 +72,11 @@ function CreateQuiz({ createQuiz }) {
               <input
                 onChange={handleChange}
                 onDoubleClick={correctAnswer}
-                name={`${ltr}`}
+                name={`Q1 ${ltr}`}
                 id="question1"
-                type="text" />
+                type="text"
+                className='1'
+              />
             </div>
           ))}
         </div>
@@ -67,16 +92,18 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question2}</textarea>
 
-        <div>
+        <div ref={question2Options}>
           {['a', 'b', 'c', 'd'].map(ltr => (
             <div key={ltr}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
                 onDoubleClick={correctAnswer}
-                name={`${ltr}`}
+                name={`Q2 ${ltr}`}
                 id="question2"
-                type="text" />
+                type="text"
+                className='2'
+              />
             </div>
           ))}
         </div>
@@ -92,16 +119,18 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question3}</textarea>
 
-        <div>
+        <div ref={question3Options}>
           {['a', 'b', 'c', 'd'].map(ltr => (
             <div key={ltr}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
                 onDoubleClick={correctAnswer}
-                name={`${ltr}`}
+                name={`Q3 ${ltr}`}
                 id="question3"
-                type="text" />
+                type="text"
+                className='3'
+              />
             </div>
           ))}
         </div>
@@ -117,16 +146,18 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question4}</textarea>
 
-        <div>
+        <div ref={question4Options}>
           {['a', 'b', 'c', 'd'].map(ltr => (
             <div key={ltr}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
                 onDoubleClick={correctAnswer}
-                name={`${ltr}`}
+                name={`Q4 ${ltr}`}
                 id="question4"
-                type="text" />
+                type="text"
+                className='4'
+              />
             </div>
           ))}
         </div>
@@ -142,34 +173,26 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question5}</textarea>
 
-        <div>
-          {['a', 'b', 'c', 'd'].map(ltr => (
+        <div ref={question5Options}>
+          {[' a', 'b', 'c', 'd'].map(ltr => (
             <div key={ltr}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
                 onDoubleClick={correctAnswer}
-                name={`${ltr}`}
+                name={`Q5 ${ltr}`}
                 id="question5"
-                type="text" />
+                type="text"
+                className='5'
+              />
             </div>
           ))}
         </div>
 
-        <button disabled={!validForm} type="submit">Create Lesson</button>
+        <button disabled={false} type="submit">Create Lesson</button>
       </form>
     </div>
   );
 }
 
 export default CreateQuiz;
-
-
-
-{/* <input type="radio" id="question1" value="a" name="question1A" onChange={correctAnswer} /> Option A
-
-<input type="radio" id="question1" value="b" name="question1B" onChange={correctAnswer} /> Option B
-
-<input type="radio" id="question1" value="c" name="question1C" onChange={correctAnswer} /> Option C
-
-<input type="radio" id="question1" value="d" name="question1D" onChange={correctAnswer} /> Option D */}
