@@ -3,7 +3,7 @@ import styles from "./Module.module.css";
 import { Link } from "react-router-dom";
 import ModuleCard from "../ModuleCard/ModuleCard";
 
-const Modules = ({ modules }) => {
+const Modules = ({ modules, handleSelect, moduleSelect }) => {
   return (
     <>
       <div className={styles.container}>
@@ -12,20 +12,13 @@ const Modules = ({ modules }) => {
           <div className={styles.modulerow}>
             {modules.map((module) => {
               return (
-                <Link
-                  to="/"
-                  key={module._id}
-                  style={{ textDecoration: "none" }}
-                  state={{ module }}
-                >
-                  <ModuleCard modules={module} />
-                </Link>
+                  <ModuleCard modules={module} handleSelect={handleSelect} moduleSelect={moduleSelect} id={`${module.name}-key}`}/>
               );
             })}
           </div>
         </div>
 
-        <div className={styles.columnlessons}>Core modules > Lessons</div>
+        <div className={styles.columnlessons}>Core modules {'>'} Lessons</div>
 
         <div className={styles.columnlearn}>Learn about</div>
       </div>
