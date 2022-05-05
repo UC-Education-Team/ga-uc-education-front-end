@@ -74,7 +74,8 @@ const App = () => {
   useEffect(() => {
     if (moduleSelect !== "") {
       lessonService.getModuleLessons(moduleSelect)
-        .then(moduleLessons => setLessons([moduleLessons]))
+        .then(module => setLessons([module.lessons]))
+      console.log(lessons)
     } else {
       setLessons([])
     }
