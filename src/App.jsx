@@ -96,6 +96,7 @@ const App = () => {
           setLessons(module.lesson)
           setQuizzes(module.quiz)
         })
+      console.log(lessons)
     } else {
       setLessons([])
       setQuizzes([])
@@ -106,7 +107,7 @@ const App = () => {
     <div className='AppView'>
       <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper" />
       <Routes>
-        <Route path="/" element={user ? <Landing user={user} /> : <Navigate to="/login" />} />
+        <Route path="/" element={user ? <Landing user={user}/> : <Navigate to="/login" />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -167,3 +168,5 @@ const App = () => {
 }
 
 export default App
+
+//test
