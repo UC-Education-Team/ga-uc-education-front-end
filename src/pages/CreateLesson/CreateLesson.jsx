@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 function CreateQuiz({ createLesson }) {
 
-  const [formData, setFormData] = useState({ name: '', text: '' })
+  const [formData, setFormData] = useState({ name: '', text: '', moduleId: '' })
   const [validForm, setValidForm] = useState(false)
   const formElement = useRef()
   function handleChange(e) {
@@ -12,7 +12,7 @@ function CreateQuiz({ createLesson }) {
   }
 
   function handleSubmit(e) {
-    e.preventDefault()
+    // e.preventDefault()
     return createLesson(formData)
   }
 
@@ -34,6 +34,20 @@ function CreateQuiz({ createLesson }) {
           value={formData.name}
           id='name'
         />
+      
+
+
+        {/* Module ID */}
+
+        <p>Module ID</p>
+        <input
+          required
+          type="text"
+          name='moduleId'
+          onChange={handleChange}
+          value={formData.moduleId}
+          id='name'
+        />
 
         {/* Lesson Content*/}
         <p>Lesson Material</p>
@@ -45,6 +59,7 @@ function CreateQuiz({ createLesson }) {
           rows="10"
           onChange={handleChange}
         >{formData.text}</textarea>
+
         <button disabled={false} type="submit">Create Lesson</button>
       </form>
     </div>

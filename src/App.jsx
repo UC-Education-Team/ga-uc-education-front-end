@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
-import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
@@ -20,6 +20,7 @@ import * as quizService from './services/quizService'
 import * as lessonService from './services/lessonService'
 import './App.css'
 import Modules from './components/Modules/Modules';
+import AdminPage from './pages/AdminPage/AdminPage';
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
   const [lessons, setLessons] = useState([])
   const [quizzes, setQuizzes] = useState([])
   const [moduleSelect, setModuleSelect] = useState("")
+  const [lessonSelect, setLessonSelect] = useState("")
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -37,10 +39,20 @@ const App = () => {
   }
 
   const handleSelect = (e) => {
+    console.log(moduleSelect)
     if (moduleSelect === "") {
       setModuleSelect(e.target.id)
     } else {
       setModuleSelect("")
+    }
+  }
+
+  const lessonSelection = (e) => {
+    console.log(lessonSelect)
+    if (lessonSelect === "") {
+      setLessonSelect(e.target.id)
+    } else {
+      setLessonSelect("")
     }
   }
 
@@ -72,11 +84,17 @@ const App = () => {
   }, [])
 
   useEffect(() => {
+    quizService.getAll()
+      .then(allQuizzes => console.log('All Quizzes: ', allQuizzes))
+  }, [])
+
+
+  useEffect(() => {
     if (moduleSelect !== "") {
       lessonService.getModuleLessons(moduleSelect)
         .then(module => {
-          setLessons([module.lessons])
-          setQuizzes([module.quizzes])
+          setLessons(module.lesson)
+          setQuizzes(module.quiz)
         })
       console.log(lessons)
     } else {
@@ -87,7 +105,7 @@ const App = () => {
 
   return (
     <div className='AppView'>
-      <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper"/>
+      <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper" />
       <Routes>
         <Route path="/" element={user ? <Landing user={user}/> : <Navigate to="/login" />} />
         <Route
@@ -103,6 +121,10 @@ const App = () => {
           element={user ? <Profiles /> : <Navigate to="/login" />}
         />
         <Route
+          path="/adminPage"
+          element={<AdminPage createModule={newModule} createLesson={newLesson} createQuiz={newQuiz} />}
+        />
+        <Route
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin} /> : <Navigate to="/login" />}
         />
@@ -112,6 +134,8 @@ const App = () => {
             modules={modules}
             handleSelect={handleSelect}
             moduleSelect={moduleSelect}
+            lessonSelect={lessonSelect}
+            lessonSelection={lessonSelection}
             lessons={lessons}
             quizzes={quizzes}
           />} />
@@ -139,7 +163,7 @@ const App = () => {
           element={user ? <Landing /> : <Navigate to="/login" />}
         />
       </Routes>
-      </div>
+    </div>
   )
 }
 
