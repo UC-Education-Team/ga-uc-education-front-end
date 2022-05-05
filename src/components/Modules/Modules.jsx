@@ -28,14 +28,6 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
       setIndex(selectedIndex);
     };
 
-    function filterQuizzes() {
-      quizzes.forEach(quiz => {
-        if (quiz?.module?._id === moduleSelect) {
-          return setCurrentQuizzes([...currentQuizzes, quiz])
-        }
-      })
-      console.log(currentQuizzes)
-    }
 
     return (
       <Carousel activeIndex={index} onSelect={handleSelect} nextIcon={""} prevIcon={""} nextLabel={""}>
@@ -103,12 +95,18 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
 
           {moduleSelect !== "" ?
             <>
-              <div className="columlessons"> Core modules {">"} Lessons</div>
+              <div className="columlessons"> Lessons</div>
               <button>
                 <Link
                   to="/create-quiz"
                   state={moduleSelect}>
                   Create A Quiz
+                </Link>
+              </button>
+              <button>
+                <Link
+                  to="/create-lesson">
+                  Create A Lesson
                 </Link>
               </button>
               {lessons === [] ?
@@ -124,9 +122,23 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
                     )
                   })}
                 </div>
-                : null}
+                : <p id="noLesson">This module does not have any lessons</p>}
 
-              <div className="columnlearn">Learn about</div>
+              <div className="columnlearn">Quizzes</div>
+              {quizzes === [] ?
+                <div className="modulerow">
+                  {quizzes.map((quiz) => {
+                    return (
+                      <ModuleCard
+                        modules={quiz}
+                        handleSelect={handleSelect}
+                        moduleSelect={moduleSelect}
+                        id={`${quiz.name}-key}`}
+                      />
+                    )
+                  })}
+                </div>
+                : <p id="noLesson">This module does not have any quizzes</p>}
             </>
             : null}
 
