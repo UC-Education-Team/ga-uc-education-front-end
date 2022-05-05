@@ -29,6 +29,7 @@ const App = () => {
   const [lessons, setLessons] = useState([])
   const [quizzes, setQuizzes] = useState([])
   const [moduleSelect, setModuleSelect] = useState("")
+  const [lessonSelect, setLessonSelect] = useState("")
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -43,6 +44,15 @@ const App = () => {
       setModuleSelect(e.target.id)
     } else {
       setModuleSelect("")
+    }
+  }
+
+  const lessonSelection = (e) => {
+    console.log(lessonSelect)
+    if (lessonSelect === "") {
+      setLessonSelect(e.target.id)
+    } else {
+      setLessonSelect("")
     }
   }
 
@@ -124,6 +134,8 @@ const App = () => {
             modules={modules}
             handleSelect={handleSelect}
             moduleSelect={moduleSelect}
+            lessonSelect={lessonSelect}
+            lessonSelection={lessonSelection}
             lessons={lessons}
             quizzes={quizzes}
           />} />
