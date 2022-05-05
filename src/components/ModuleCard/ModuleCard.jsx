@@ -13,7 +13,6 @@ const ModuleCard = ({modules, handleSelect, moduleSelect}) => {
        <img id={modules._id} src={Book} alt="Book"/>
        </div>
       </div>
-      
     </>
   )
 }

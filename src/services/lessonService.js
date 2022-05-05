@@ -12,3 +12,10 @@ export async function createLesson(lesson) {
   })
   return newLesson.json()
 }
+
+function getModuleLessons(select) {
+  return fetch(`${BASE_URL}/${select}`)
+    .then(res => res.json())
+}
+
+export { getModuleLessons }

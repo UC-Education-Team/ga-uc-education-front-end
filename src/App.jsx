@@ -37,8 +37,11 @@ const App = () => {
   }
 
   const handleSelect = (e) => {
-    setModuleSelect(e.target.id)
-    console.log(e.target.id)
+    if (moduleSelect === "") {
+      setModuleSelect(e.target.id)
+    } else {
+      setModuleSelect("")
+    }
   }
 
   const handleSignupOrLogin = () => {
@@ -63,12 +66,20 @@ const App = () => {
     navigate('/')
   }
 
-  useEffect( async () => {
+  useEffect(() => {
     moduleService.getAll()
       .then(allModules => setModules(allModules))
-      
   }, [])
-  console.log(modules)
+
+  useEffect(() => {
+    if (moduleSelect !== "") {
+      lessonService.getModuleLessons(moduleSelect)
+        .then(moduleLessons => setLessons([moduleLessons]))
+    } else {
+      setLessons([])
+    }
+  }, [moduleSelect])
+
   return (
     <div className='AppView'>
       <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper"/>
@@ -96,6 +107,7 @@ const App = () => {
             modules={modules}
             handleSelect={handleSelect}
             moduleSelect={moduleSelect}
+            lessons={lessons}
           />} />
         <Route
           path="/lessons"
