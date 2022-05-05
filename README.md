@@ -1,68 +1,65 @@
-# Decoupled MERN Stack with JWT Auth Template - Front End
+# Education Team
 
-This is the front end of a decoupled MERN Stack app that includes JWT Authentication.
+Description Here
 
-When combined with the back end found [here](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end), you'll have all you need to build a full stack MERN app!
+## Getting Started:
 
-Use this to go build things! 🚀
+Here are links to our [Figma](...) and our [Trello Board](https://trello.com/b/yD8FqOAn/unit-4-project) containing our teams project planning materials.
+  
+## Screenshots:
 
-## To Use This Template
+Dashboard
 
-**Replace `<name-of-your-app-here>` in the commands below with the name of your app!**
+<img alt="Homepage" src="" width="600px" >
 
-```bash
-git clone https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end <name-of-your-app-here>-front-end
-cd <name-of-your-app-here>-front-end
-```
+Sign Up
 
-Once you are in the project directory:
+<img alt="Homepage" src="" width="600px" >
 
-```bash
-rm -rf .git
-```
+Log In
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+<img alt="Lobby Detail View" src="" width="600px">
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
+Module
 
-Re-initialize a git repository:
+<img alt="Homepage" src="" width="600px" >
 
-```bash
-git init
-```
+Lesson
 
-Use the GitHub CLI to create a new project repository on GitHub:
+<img alt="Homepage" src="" width="600px" >
 
-```bash
-gh repo create <name-of-your-app-here>-front-end
-```
+Quiz Form
 
-Run `npm i` to fetch the template's dependencies:
+<img alt="Homepage" src="" width="600px" >
 
-```bash
-npm i
-```
+## Technologies Used:
 
-touch a `.env` file:
+- JavaScript
+- MongoDB
+- Express
+- React
+- Node 
+- Bootstrap
+- Material UI Core
 
-```bash
-touch .env
-```
+## Next Steps:
 
-Fill it with the following:
+.....
 
-```
-REACT_APP_BACKEND_SERVER_URL=http://localhost:3001
-```
+## The Team:
 
-> 🚨 DO NOT place secrets in this `.env` file. The contents of this file WILL be exposed to site visitors.
+Ian Pang - UI/UX
 
-Delete this README.md, then make an initial commit:
+Ashley Steele - UI/UX
 
-```bash
-git add .
-git commit -m "initial commit"
-git push -u origin main
-```
+Zena Endrias - Software Engineer
 
-You're done!
+Bryan Nguyen - Software Engineer
+
+Triston Palacios - Software Engineer
+
+Christine Davis - Software Engineer 
+
+Andrew Urquhart - Software Engineer
+
+Marcus Lindbloom - Software Engineer
