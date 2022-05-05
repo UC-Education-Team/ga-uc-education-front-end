@@ -23,18 +23,11 @@ const Landing = ({ user }) => {
         <div><img src={Group} alt="logo" /></div>
         
         <Box>
-        <div><h1 className={styles.title}>
-        Hi, {user ? user.name : "friend"}!
-        <p>Bonjou, {user ? user.name : "friend"}!</p>
-      </h1>  
-      <Stack spacing={2}>
-      <Button sx={{
-                    background: "green" 
-                  }} variant="contained">Eng</Button>
-      <Button sx={{
-                    background: "lightgreen" 
-                  }}variant="contained">Hat</Button>
-      </Stack>
+        <div className={styles.title}>
+        <h1>Hi, {user ? user.name : "friend"}! <Button className={styles.LanguageButton}>ENG</Button></h1> 
+        <p className={styles.LanguageTwo}>Bonjou, {user ? user.name : "friend"}! <Button style={{marginLeft:'60px',}} className={styles.LanguageButtonTwo} disabled>HAT</Button></p>
+    
+     
       </div></Box>
 
 

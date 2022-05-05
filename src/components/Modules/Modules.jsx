@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import ModuleCard from "../ModuleCard/ModuleCard";
 import { Card, ProgressBar, Carousel } from "react-bootstrap";
 import Question from './Vector.png'
-import ContentOne from './content_screen1.png'
-import ContentTwo from './content_screen2.png'
-import ContentThree from './content_screen3.png'
-import ContentFour from './content_screen4.png'
+import ContentOne from './content_screen1 .png'
+import ContentTwo from './content_screen2 .png'
+import ContentThree from './content_screen3 .png'
+import ContentFour from './content_screen4 .png'
 
-const Modules = ({ modules, handleSelect, moduleSelect, lessons }) => {
+const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
   const progressBarFun = (now) =>{
     if(now <40){
       return <ProgressBar variant="danger" now={now} animated className="progressbar" /> 
@@ -93,7 +93,7 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons }) => {
 
         {moduleSelect !== "" ?
           <>
-          <div className="columlessons"> Core modules {">"} Lessons</div>
+          <div className="columlessons"> Lessons</div> 
           {lessons === [] ?
               <div className="modulerow">
                 {lessons.map((lesson) => {
@@ -107,9 +107,23 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons }) => {
                   )
                 })}
               </div>
-          : null }
+          : <p id="noLesson">This module does not have any lessons</p> }
   
-          <div className="columnlearn">Learn about</div>
+          <div className="columnlearn">Quizzes</div>
+          {quizzes === [] ?
+              <div className="modulerow">
+                {quizzes.map((quiz) => {
+                  return (
+                    <ModuleCard
+                      modules={quiz}
+                      handleSelect={handleSelect}
+                      moduleSelect={moduleSelect}
+                      id={`${quiz.name}-key}`}
+                    />
+                  )
+                })}
+              </div>
+          : <p id="noLesson">This module does not have any quizzes</p> }
           </>
         : null }
 
@@ -122,7 +136,6 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons }) => {
         <Card className="ProgressCard">
           <h1 style={{fontSize:'1.3rem', textAlign:'center', marginBottom:'4vh' , marginTop:'15px'}}>Learning Progress</h1>
           {modules.map((module) => {
-            const now = Math.floor(Math.random() * 100)
             return (
               <div className="ProgressItem">
                 <h1 className="progressname">{module.name}</h1>

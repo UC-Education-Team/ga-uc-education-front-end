@@ -74,10 +74,14 @@ const App = () => {
   useEffect(() => {
     if (moduleSelect !== "") {
       lessonService.getModuleLessons(moduleSelect)
-        .then(module => setLessons([module.lessons]))
+        .then(module => {
+          setLessons([module.lessons])
+          setQuizzes([module.quizzes])
+        })
       console.log(lessons)
     } else {
       setLessons([])
+      setQuizzes([])
     }
   }, [moduleSelect])
 
@@ -85,7 +89,7 @@ const App = () => {
     <div className='AppView'>
       <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper"/>
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={user ? <Landing user={user}/> : <Navigate to="/login" />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -109,6 +113,7 @@ const App = () => {
             handleSelect={handleSelect}
             moduleSelect={moduleSelect}
             lessons={lessons}
+            quizzes={quizzes}
           />} />
         <Route
           path="/lessons"
