@@ -60,7 +60,7 @@ const NavBar = ({ user, handleLogout }) => {
           </CDBSidebarMenu>
         </CDBSidebarContent>
         <CDBSidebarFooter>
-        <CDBSidebarMenuItem icon="user"><Link to="/login" onClick={handleLogout}>Log Out</Link></CDBSidebarMenuItem>
+        <CDBSidebarMenuItem icon="user" onClick={handleLogout}><Link to="/login" onClick={handleLogout}>Log Out</Link></CDBSidebarMenuItem>
         
         </CDBSidebarFooter>
       </CDBSidebar>
