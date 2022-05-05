@@ -9,6 +9,7 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import logo from './logo.png';
 
 
 const NavBar = ({ user, handleLogout }) => {
@@ -35,9 +36,8 @@ const NavBar = ({ user, handleLogout }) => {
       <div style={{ height: '100vh', overflow: 'scroll initial' }}>
       <CDBSidebar textColor="black" backgroundColor="white">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-          <a href="/" className="text-decoration-none" style={{ color: 'black' }}>
-            Dashboard
-          </a>
+          <img src={logo} alt="logo"
+               />
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
