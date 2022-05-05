@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import NavBar from './components/NavBar/NavBar'
@@ -8,12 +8,15 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
-import Modules from './pages/Modules/Modules'
+import ModulesView from './pages/Modules-View/Modules-View'
 import Lessons from './pages/Lessons/Lessons'
 import Quizzes from './pages/Quizzes/Quizzes'
 import './App.css'
+import * as moduleService from './services/moduleService.js'
+
 
 const App = () => {
+  const [modules, setModules] = useState([])
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
@@ -26,6 +29,11 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
+
+  useEffect(() => {
+    moduleService.getAll()
+    .then(allModules => setModules(allModules))
+  }, [])
 
   return (
     <div className='AppView'>
@@ -51,9 +59,10 @@ const App = () => {
         />
         <Route
           path="/modules"
-          element={<Modules />}
-        />
-         <Route
+          element={<ModulesView 
+          modules={modules}
+        />} />
+        <Route
           path="/lessons"
           element={<Lessons />}
         />
