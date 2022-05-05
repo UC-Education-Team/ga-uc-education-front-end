@@ -35,15 +35,6 @@ function CreateQuiz({ createLesson }) {
           id='name'
         />
       
-        <p>Reference Module ID</p>
-        <input
-          required
-          type="text"
-          name='id'
-          onChange={handleChange}
-          value={formData.id}
-          id='id'
-        />
 
 
         {/* Module ID */}
