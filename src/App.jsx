@@ -29,6 +29,7 @@ const App = () => {
   const [lessons, setLessons] = useState([])
   const [quizzes, setQuizzes] = useState([])
   const [moduleSelect, setModuleSelect] = useState("")
+  const [lessonSelect, setLessonSelect] = useState("")
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -82,10 +83,9 @@ const App = () => {
   useEffect(() => {
     if (moduleSelect !== "") {
       lessonService.getModuleLessons(moduleSelect)
-        .then(_module => {
-          console.log('_module', _module)
-          setLessons(_module.lesson)
-          setQuizzes([_module.quiz])
+        .then(module => {
+          setLessons(module.lesson)
+          setQuizzes(module.quiz)
         })
     } else {
       setLessons([])
