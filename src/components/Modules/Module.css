@@ -18,8 +18,8 @@ body {
 .modulerow {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
 }
 
 .columnlessons {
@@ -72,4 +72,19 @@ border: 1px solid #8A8A8A;
 .ProgressLabel{
   margin: auto;
   margin-left:5px;
+}
+.Help{
+  text-align: right;
+}
+
+.HelpButton{
+width: 98px;
+height: 33px;
+left: 883px;
+top: 68px;
+background: #36AA00;
+border: 1px solid #AAAAAA;
+box-sizing: border-box;
+border-radius: 5px;
+color: white !important;
 }

@@ -6,7 +6,7 @@ import DoughnutChart from "./Doughnut";
 import { Paper, Grid, styled } from "@mui/material";
 
 import styles from "./Landing.module.css";
-import Group from './Group.png';
+import Group from "./Group.png";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -17,10 +17,15 @@ const Item = styled(Paper)(({ theme }) => ({
 const Landing = ({ user }) => {
   return (
     <main className={styles.container}>
-      <h1 className={styles.title} > <img src={Group} alt="logo"
-               />Hi, {user ? user.name : "friend"}!</h1>
+      <div className={styles.HeaderArea}>
+        <div><img src={Group} alt="logo" /></div>
+        <div><h1 className={styles.title}>
+        Hi, {user ? user.name : "friend"}!
+      </h1></div>
+        </div>
+      
 
-      <Grid container rowSpacing={2}  spacing={8}>
+      <Grid container rowSpacing={2} spacing={8}>
         <Grid item xs={4}>
           <Item
             sx={{
@@ -30,7 +35,7 @@ const Landing = ({ user }) => {
               border: "1px solid black",
               boxshadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
               borderradius: "5px",
-              fontSize:'1rem'
+              fontSize: "1rem",
             }}
           >
             Training Progress XX%{" "}
@@ -73,7 +78,6 @@ const Landing = ({ user }) => {
               border: "1px solid black",
               boxshadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
               borderradius: "5px",
-              
             }}
             className={styles.item}
           >
@@ -97,7 +101,7 @@ const Landing = ({ user }) => {
               className=""
               src={barchart}
               alt=""
-              style={{width:'100%', height:'100%'}}
+              style={{ width: "100%", height: "100%" }}
             />
           </Item>
         </Grid>
@@ -110,12 +114,17 @@ const Landing = ({ user }) => {
               border: "1px solid black",
               boxshadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
               borderradius: "5px",
-              alignItems:"center",
-              justifyContent:"center",
+              alignItems: "center",
+              justifyContent: "center",
             }}
             className={styles.item}
           >
-            <img className="" src={piggySvg} alt="" style={{width:'100%', height:'100%'}} />
+            <img
+              className=""
+              src={piggySvg}
+              alt=""
+              style={{ width: "100%", height: "100%" }}
+            />
           </Item>
         </Grid>
       </Grid>

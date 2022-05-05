@@ -4,7 +4,6 @@
     bottom: 0;
     left: 0;
     min-height: 100vh !important;
-    padding: 48px 0 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.75);
     background-color: white !important;
 }
