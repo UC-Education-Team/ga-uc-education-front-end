@@ -54,6 +54,9 @@ const NavBar = ({ user, handleLogout }) => {
             <NavLink exact to="/modules" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="book" style={{ color: 'black' }}>Modules</CDBSidebarMenuItem>
             </NavLink>
+            {user.isAdmin === true ? <NavLink exact to="/adminPage" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="sticky-note" style={{ color: 'black' }}>Modules</CDBSidebarMenuItem>
+            </NavLink> : <div></div>}
             <NavLink exact to="/" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="table">Events Center</CDBSidebarMenuItem>
             </NavLink>
