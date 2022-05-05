@@ -100,6 +100,9 @@ const DoughnutChart = ({ height, color = [] }) => {
         ],
     }
 
+export default class App extends React.Component {
+  render() {
+
     return (
         <ReactEcharts
             style={{ height: height }}
