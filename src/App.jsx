@@ -27,12 +27,18 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [lessons, setLessons] = useState([])
   const [quizzes, setQuizzes] = useState([])
+  const [moduleSelect, setModuleSelect] = useState("")
   const navigate = useNavigate()
 
   const handleLogout = () => {
     authService.logout()
     setUser(null)
     navigate('/')
+  }
+
+  const handleSelect = (e) => {
+    setModuleSelect(e.target.id)
+    console.log(e.target.id)
   }
 
   const handleSignupOrLogin = () => {
@@ -56,7 +62,8 @@ const App = () => {
     setQuizzes([...quizzes, newQuiz])
     navigate('/')
   }
-  useEffect(() => {
+
+  useEffect( async () => {
     moduleService.getAll()
       .then(allModules => setModules(allModules))
       
@@ -87,6 +94,8 @@ const App = () => {
           path="/modules"
           element={<ModulesView
             modules={modules}
+            handleSelect={handleSelect}
+            moduleSelect={moduleSelect}
           />} />
         <Route
           path="/lessons"

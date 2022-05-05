@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ModuleCard from "../ModuleCard/ModuleCard";
 import { Card } from "react-bootstrap";
 
-const Modules = ({ modules }) => {
+const Modules = ({ modules, handleSelect, moduleSelect }) => {
   return (
     <>
       <div className='container'>
@@ -13,20 +13,13 @@ const Modules = ({ modules }) => {
           <div className='modulerow'>
             {modules.map((module) => {
               return (
-                <Link
-                  to="/"
-                  key={module._id}
-                  style={{ textDecoration: "none" }}
-                  state={{ module }}
-                >
-                  <ModuleCard modules={module} />
-                </Link>
+                  <ModuleCard modules={module} handleSelect={handleSelect} moduleSelect={moduleSelect} id={`${module.name}-key}`}/>
               );
             })}
           </div>
         </div>
 
-        <div className='columnlessons'>Core modules Lessons</div>
+        <div className='columlessons'>Core modules {'>'} Lessons</div>
 
         <div className='columnlearn'>Learn about</div>
       </div>
