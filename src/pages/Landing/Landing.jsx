@@ -66,7 +66,7 @@ const Landing = ({ user }) => {
               borderradius: "5px",
             }}
           >
-            Goalsffg
+            <h3> Goals</h3>
           </Item>
         </Grid>
         <Grid item xs={4}>
