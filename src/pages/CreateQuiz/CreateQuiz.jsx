@@ -56,13 +56,6 @@ function CreateQuiz({ createQuiz }) {
             </>
           ))}
         </div>
-        <input type="radio" id="question1" value="a" name="question1A" onChange={correctAnswer} /> Option A
-
-        <input type="radio" id="question1" value="b" name="question1B" onChange={correctAnswer} /> Option B
-
-        <input type="radio" id="question1" value="c" name="question1C" onChange={correctAnswer} /> Option C
-
-        <input type="radio" id="question1" value="d" name="question1D" onChange={correctAnswer} /> Option D
 
         {/* Question 2 */}
         <p>Question 2</p>
@@ -171,3 +164,13 @@ function CreateQuiz({ createQuiz }) {
 }
 
 export default CreateQuiz;
+
+
+
+{/* <input type="radio" id="question1" value="a" name="question1A" onChange={correctAnswer} /> Option A
+
+<input type="radio" id="question1" value="b" name="question1B" onChange={correctAnswer} /> Option B
+
+<input type="radio" id="question1" value="c" name="question1C" onChange={correctAnswer} /> Option C
+
+<input type="radio" id="question1" value="d" name="question1D" onChange={correctAnswer} /> Option D */}
