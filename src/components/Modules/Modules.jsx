@@ -6,7 +6,7 @@ import ModuleCard from "../ModuleCard/ModuleCard";
 import { Card, ProgressBar, Carousel } from "react-bootstrap";
 import Question from './Vector.png'
 
-const Modules = ({ modules, handleSelect, moduleSelect }) => {
+const Modules = ({ modules, handleSelect, moduleSelect, lessons }) => {
   const progressBarFun = (now) =>{
     if(now <40){
       return <ProgressBar variant="danger" now={now} animated className="progressbar" /> 
@@ -93,10 +93,28 @@ const Modules = ({ modules, handleSelect, moduleSelect }) => {
           </div>
         </div>
 
-        <div className="columlessons"> Core modules {">"} Lessons</div>
+        {moduleSelect !== "" ?
+          <>
+          <div className="columlessons"> Core modules {">"} Lessons</div>
+          {lessons === [] ?
+              <div className="modulerow">
+                {lessons.map((lesson) => {
+                  return (
+                    <ModuleCard
+                      modules={lesson}
+                      handleSelect={handleSelect}
+                      moduleSelect={moduleSelect}
+                      id={`${lesson.name}-key}`}
+                    />
+                  )
+                })}
+              </div>
+          : null }
+  
+          <div className="columnlearn">Learn about</div>
+          </>
+        : null }
 
-        <div className="columnlearn">Learn about</div>
-        
       </div>
       <div>
         <Card className="ProgressCard">
