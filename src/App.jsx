@@ -47,6 +47,15 @@ const App = () => {
     }
   }
 
+  const lessonSelection = (e) => {
+    console.log(lessonSelect)
+    if (lessonSelect === "") {
+      setLessonSelect(e.target.id)
+    } else {
+      setLessonSelect("")
+    }
+  }
+
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
@@ -124,6 +133,8 @@ const App = () => {
             modules={modules}
             handleSelect={handleSelect}
             moduleSelect={moduleSelect}
+            lessonSelect={lessonSelect}
+            lessonSelection={lessonSelection}
             lessons={lessons}
             quizzes={quizzes}
           />} />
