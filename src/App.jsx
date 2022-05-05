@@ -11,7 +11,7 @@ import * as authService from './services/authService'
 import Modules from './pages/Modules/Modules'
 import Lessons from './pages/Lessons/Lessons'
 import Quizzes from './pages/Quizzes/Quizzes'
-
+import './App.css'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
