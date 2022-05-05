@@ -98,19 +98,6 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes, lesson
             {moduleSelect !== "" ?
               <>
                 <div className="columlessons"> Lessons</div>
-                <button>
-                  <Link
-                    to="/create-quiz"
-                    state={moduleSelect}>
-                    Create A Quiz
-                  </Link>
-                </button>
-                <button>
-                  <Link
-                    to="/create-lesson">
-                    Create A Lesson
-                  </Link>
-                </button>
                 {lessons && lessons.length ?
                   <div className="modulerow">
                     {lessons.map((lesson) => {
