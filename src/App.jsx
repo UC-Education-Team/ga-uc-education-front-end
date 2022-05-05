@@ -20,6 +20,7 @@ import * as quizService from './services/quizService'
 import * as lessonService from './services/lessonService'
 import './App.css'
 import Modules from './components/Modules/Modules';
+import AdminPage from './pages/AdminPage/AdminPage';
 
 
 const App = () => {
@@ -97,6 +98,10 @@ const App = () => {
         <Route
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/adminPage"
+          element={<AdminPage createModule={newModule} createLesson={newLesson} createQuiz={newQuiz} />}
         />
         <Route
           path="/changePassword"
