@@ -1,21 +1,32 @@
-import { useState } from 'react'
-import SignupForm from '../../components/SignupForm/SignupForm'
-import styles from './Signup.module.css'
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import SignupForm from "../../components/SignupForm/SignupForm";
+import "./Signup.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Card, Image } from "react-bootstrap";
 
-const Signup = props => {
-  const [message, setMessage] = useState([''])
+const Signup = (props) => {
+  const [message, setMessage] = useState([""]);
 
-  const updateMessage = msg => {
-    setMessage(msg)
-  }
+  const updateMessage = (msg) => {
+    setMessage(msg);
+  };
 
   return (
-    <main className={styles.container}>
-      <h1>Sign Up</h1>
-      <p>{message}</p>
-      <SignupForm {...props} updateMessage={updateMessage} />
+    <main className="container">
+      <Card className="signUpCard">
+        <div className="header">
+          <div className="logo"></div>
+          <h1>Sign Up</h1>
+        </div>
+        <p className="mx-auto">{message}</p>
+        <SignupForm {...props} updateMessage={updateMessage} />
+        <div>
+          
+        </div>
+      </Card>
     </main>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;

@@ -1,0 +1,36 @@
+.container {
+ margin: auto;
+ justify-content: center;
+}
+
+.signUpCard {
+  width: 400px;
+  height: 650px;
+  background: #e4e4e4;
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+
+  
+}
+.header{display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  width: 292px;
+  height: 106px;
+  left: 25px;
+  top: 16px;
+  margin-top: auto;
+}
+
+.logo{
+  background-image: url(logo.png);
+  position: static;
+  width: 70px;
+  height: 90px;
+  left: 8px;
+  top: 8px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 30px;}

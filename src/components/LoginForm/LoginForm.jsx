@@ -33,32 +33,35 @@ const LoginForm = props => {
       className={styles.container}
     >
       <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
         <input
           type="text"
           autoComplete="off"
-          id="email"
+          id={styles.usernameContainer}
           value={formData.email}
           name="email"
+          placeholder="E-Mail"
           onChange={handleChange}
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
         <input
           type="password"
           autoComplete="off"
-          id="password"
+          id={styles.passwordContainer}
           value={formData.pw}
           name="pw"
+          placeholder='Password'
           onChange={handleChange}
         />
       </div>
       <div>
-        <button className={styles.button}>Log In</button>
-        <Link to="/">
-          <button>Cancel</button>
-        </Link>
+        <button className={styles.button}>Sign In</button>
+      </div>
+      <div id={styles.redirectContainer}>
+        <p>Don't have an account? 
+          <Link to="/signup">Sign Up</Link>
+        </p>
+        <p>Forgot password?</p>
       </div>
     </form>
   )
