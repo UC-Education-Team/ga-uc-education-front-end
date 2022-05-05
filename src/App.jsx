@@ -11,10 +11,11 @@ import * as authService from './services/authService'
 import ModulesView from './pages/Modules-View/Modules-View'
 import Lessons from './pages/Lessons/Lessons'
 import Quizzes from './pages/Quizzes/Quizzes'
+import './App.css'
+import * as moduleService from './services/moduleService.js'
 import CreateModule from './pages/CreateModule/CreateModule'
 import CreateQuiz from './pages/CreateQuiz/CreateQuiz'
 import CreateLesson from './pages/CreateLesson/CreateLesson'
-import * as moduleService from './services/moduleService'
 import * as quizService from './services/quizService'
 import * as lessonService from './services/lessonService'
 import './App.css'
@@ -60,7 +61,7 @@ const App = () => {
   }, [])
 
   return (
-    <>
+    <div className='AppView'>
       <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper"/>
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
@@ -109,7 +110,7 @@ const App = () => {
           element={user ? <Landing /> : <Navigate to="/login" />}
         />
       </Routes>
-      </>
+      </div>
   )
 }
 
