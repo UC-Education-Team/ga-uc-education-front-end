@@ -11,7 +11,6 @@ import ContentThree from './content_screen3 .png'
 import ContentFour from './content_screen4 .png'
 
 const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
-  const [currentQuizzes, setCurrentQuizzes] = useState([])
   const progressBarFun = (now) => {
     if (now < 40) {
       return <ProgressBar variant="danger" now={now} animated className="progressbar" />
@@ -28,7 +27,7 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
       setIndex(selectedIndex);
     };
 
-
+    console.log('Lessons ', lessons)
     return (
       <Carousel activeIndex={index} onSelect={handleSelect} nextIcon={""} prevIcon={""} nextLabel={""}>
         <Carousel.Item>
@@ -109,7 +108,7 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
                   Create A Lesson
                 </Link>
               </button>
-              {lessons === [] ?
+              {lessons && lessons.length ?
                 <div className="modulerow">
                   {lessons.map((lesson) => {
                     return (
