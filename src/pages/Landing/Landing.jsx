@@ -123,7 +123,7 @@ const Landing = ({ user }) => {
               className=""
               src={piggySvg}
               alt=""
-              style={{ width: "100%", height: "100%" }}
+              style={{ width: "60%", marginTop: "10%"}}
             />
           </Item>
         </Grid>
