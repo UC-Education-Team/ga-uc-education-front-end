@@ -1,9 +1,22 @@
-import { Link } from 'react-router-dom'
+import React from "react";
+import {
+  CDBSidebar,
+  CDBSidebarContent,
+  CDBSidebarFooter,
+  CDBSidebarHeader,
+  CDBSidebarMenu,
+  CDBSidebarMenuItem,
+} from 'cdbreact';
+import { NavLink } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import logo from './logo.png';
+import "./Navbar.css";
+
 
 const NavBar = ({ user, handleLogout }) => {
   return (
     <>
-      {user ?
+      {/* {user ?
         <nav>
           <ul>
             <li>Welcome, {user.name}</li>
@@ -24,7 +37,36 @@ const NavBar = ({ user, handleLogout }) => {
             <li><Link to="/signup">Sign Up</Link></li>
           </ul>
         </nav>
-      }
+      } */}
+      {user ?
+      <div style={{ height: '100vh', overflow: 'scroll initial' }}>
+      <CDBSidebar textColor="black" backgroundColor="white" className='sidebar'>
+        <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+          <img src={logo} alt="logo"
+               />
+        </CDBSidebarHeader>
+
+        <CDBSidebarContent className="sidebar-content">
+          <CDBSidebarMenu>
+            <NavLink exact to="/" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="th-large" style={{ color: 'black' }}>Dashboard</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/modules" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="book" style={{ color: 'black' }}>Modules</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="user">Events Center</CDBSidebarMenuItem>
+            </NavLink>
+          </CDBSidebarMenu>
+        </CDBSidebarContent>
+
+        <CDBSidebarFooter >
+        <Link to="/login" onClick={handleLogout}>LOG OUT</Link>
+        </CDBSidebarFooter>
+      </CDBSidebar>
+    </div>
+: <div >
+</div>}
     </>
   )
 }

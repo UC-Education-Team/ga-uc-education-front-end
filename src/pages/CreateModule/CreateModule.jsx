@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 function CreateModule({ createModule }) {
   // Constants & State
-  const [formData, setFormData] = useState({ name: '' })
+  const [formData, setFormData] = useState({ name: '', number:Math.floor(Math.random() * 100), description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eros turpis, vehicula vel mollis ac, tincidunt non risus. ' })
   const [validForm, setValidForm] = useState(false)
   const formElement = useRef()
 

@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
   text-align: center;
+  width: 100vw;
 }
 
 .App-logo {
@@ -36,3 +43,17 @@
     transform: rotate(360deg);
   }
 }
+
+.AppView{
+display: flex;
+flex-direction: row;
+max-width: 100vw;
+
+}
+
+.AppContent{
+margin-left: 50px;
+width: 100vw;
+
+  
+} 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
@@ -10,24 +11,34 @@ import * as authService from './services/authService'
 import ModulesView from './pages/Modules-View/Modules-View'
 import Lessons from './pages/Lessons/Lessons'
 import Quizzes from './pages/Quizzes/Quizzes'
+import './App.css'
+import * as moduleService from './services/moduleService.js'
 import CreateModule from './pages/CreateModule/CreateModule'
 import CreateQuiz from './pages/CreateQuiz/CreateQuiz'
 import CreateLesson from './pages/CreateLesson/CreateLesson'
-import * as moduleService from './services/moduleService'
 import * as quizService from './services/quizService'
 import * as lessonService from './services/lessonService'
+import './App.css'
+import Modules from './components/Modules/Modules';
+
 
 const App = () => {
   const [modules, setModules] = useState([])
   const [user, setUser] = useState(authService.getUser())
   const [lessons, setLessons] = useState([])
   const [quizzes, setQuizzes] = useState([])
+  const [moduleSelect, setModuleSelect] = useState("")
   const navigate = useNavigate()
 
   const handleLogout = () => {
     authService.logout()
     setUser(null)
     navigate('/')
+  }
+
+  const handleSelect = (e) => {
+    setModuleSelect(e.target.id)
+    console.log(e.target.id)
   }
 
   const handleSignupOrLogin = () => {
@@ -51,14 +62,16 @@ const App = () => {
     setQuizzes([...quizzes, newQuiz])
     navigate('/')
   }
-  useEffect(() => {
+
+  useEffect( async () => {
     moduleService.getAll()
       .then(allModules => setModules(allModules))
+      
   }, [])
-
+  console.log(modules)
   return (
-    <>
-      <NavBar user={user} handleLogout={handleLogout} />
+    <div className='AppView'>
+      <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper"/>
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
@@ -81,6 +94,8 @@ const App = () => {
           path="/modules"
           element={<ModulesView
             modules={modules}
+            handleSelect={handleSelect}
+            moduleSelect={moduleSelect}
           />} />
         <Route
           path="/lessons"
@@ -105,8 +120,8 @@ const App = () => {
           path="/landing"
           element={user ? <Landing /> : <Navigate to="/login" />}
         />
-      </Routes >
-    </>
+      </Routes>
+      </div>
   )
 }
 
