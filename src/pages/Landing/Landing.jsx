@@ -2,8 +2,10 @@ import * as React from "react";
 import piggySvg from "../images/newpiggy.jpg";
 import barchart from "../images/barchart.svg";
 import DoughnutChart from "./Doughnut";
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
-import { Paper, Grid, styled } from "@mui/material";
+import { Paper, Grid, styled, Box } from "@mui/material";
 
 import styles from "./Landing.module.css";
 import Group from "./Group.png";
@@ -19,11 +21,25 @@ const Landing = ({ user }) => {
     <main className={styles.container}>
       <div className={styles.HeaderArea}>
         <div><img src={Group} alt="logo" /></div>
+        
+        <Box>
         <div><h1 className={styles.title}>
         Hi, {user ? user.name : "friend"}!
-      </h1></div>
+        <p>Bonjou, {user ? user.name : "friend"}!</p>
+      </h1>  
+      <Stack spacing={2}>
+      <Button sx={{
+                    background: "green" 
+                  }} variant="contained">Eng</Button>
+      <Button sx={{
+                    background: "lightgreen" 
+                  }}variant="contained">Hat</Button>
+      </Stack>
+      </div></Box>
+
+
+     
         </div>
-      
 
       <Grid container rowSpacing={2} spacing={8}>
         <Grid item xs={4}>
