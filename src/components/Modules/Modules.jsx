@@ -1,15 +1,16 @@
 import React from "react";
-import styles from "./Module.module.css";
+import styles from "./Module.css";
 import { Link } from "react-router-dom";
 import ModuleCard from "../ModuleCard/ModuleCard";
+import { Card } from "react-bootstrap";
 
 const Modules = ({ modules, handleSelect, moduleSelect }) => {
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.columnmodules}>
+      <div className='container'>
+        <div className='columnmodules'>
             <p>Core Modules</p>
-          <div className={styles.modulerow}>
+          <div className='modulerow'>
             {modules.map((module) => {
               return (
                   <ModuleCard modules={module} handleSelect={handleSelect} moduleSelect={moduleSelect} id={`${module.name}-key}`}/>
@@ -18,10 +19,15 @@ const Modules = ({ modules, handleSelect, moduleSelect }) => {
           </div>
         </div>
 
-        <div className={styles.columnlessons}>Core modules {'>'} Lessons</div>
+        <div className='columlessons'>Core modules {'>'} Lessons</div>
 
-        <div className={styles.columnlearn}>Learn about</div>
+        <div className='columnlearn'>Learn about</div>
       </div>
+      <div>
+        <Card className="ProgressCard">
+        <h1>hello</h1>
+        </Card>
+        </div>
     </>
   );
 };
