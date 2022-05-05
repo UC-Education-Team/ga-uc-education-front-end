@@ -39,13 +39,13 @@
 
 .AppView{
 display: flex;
+flex-direction: row;
 
 }
-/* /* .sidebar-wrapper{
-  grid-area: 1 / 1 / 6 / 2; 
-} */
 
 .AppContent{
-  grid-area: 1 / 2 / 6 / 6;
-  width: 80vw;
+margin-left: 50px;
+width: 100%;
+
+  
 } 

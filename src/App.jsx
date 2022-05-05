@@ -11,6 +11,7 @@ import * as authService from './services/authService'
 import ModulesView from './pages/Modules-View/Modules-View'
 import Lessons from './pages/Lessons/Lessons'
 import Quizzes from './pages/Quizzes/Quizzes'
+import './App.css'
 import * as moduleService from './services/moduleService.js'
 
 
