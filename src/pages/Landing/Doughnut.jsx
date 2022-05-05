@@ -2,17 +2,17 @@
 import React from 'react'
 // import { useTheme } from '@mui/system'
 // import ReactEcharts from 'echarts-for-react'
-import {Doughnut} from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 
 const state = {
-    labels: ['Completed', 'To-Do'],
+  labels: ['Completed', 'To-Do'],
   datasets: [
     {
       backgroundColor: [
         'green'
       ],
       hoverBackgroundColor: [
-      'grey'
+        'grey'
       ],
       data: [80, 20]
     }
@@ -27,20 +27,21 @@ export default class App extends React.Component {
         <Doughnut
           data={state}
           options={{
-            title:{
-              display:true,
-              text:'Completion',
-              fontSize:20
+            title: {
+              display: true,
+              text: 'Completion',
+              fontSize: 20
             },
-            legend:{
-              display:true,
-              position:'right'
+            legend: {
+              display: true,
+              position: 'right'
             }
           }}
         />
       </div>
     );
-  }}
+  }
+}
 
 
 

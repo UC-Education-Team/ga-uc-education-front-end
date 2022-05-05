@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
-import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
@@ -38,6 +38,7 @@ const App = () => {
   }
 
   const handleSelect = (e) => {
+    console.log(moduleSelect)
     if (moduleSelect === "") {
       setModuleSelect(e.target.id)
     } else {
@@ -73,6 +74,12 @@ const App = () => {
   }, [])
 
   useEffect(() => {
+    quizService.getAll()
+      .then(allQuizzes => console.log('All Quizzes: ', allQuizzes))
+  }, [])
+
+
+  useEffect(() => {
     if (moduleSelect !== "") {
       lessonService.getModuleLessons(moduleSelect)
         .then(module => {
@@ -88,7 +95,7 @@ const App = () => {
 
   return (
     <div className='AppView'>
-      <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper"/>
+      <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper" />
       <Routes>
         <Route path="/" element={user ? <Landing user={user}/> : <Navigate to="/login" />} />
         <Route
@@ -144,7 +151,7 @@ const App = () => {
           element={user ? <Landing /> : <Navigate to="/login" />}
         />
       </Routes>
-      </div>
+    </div>
   )
 }
 
