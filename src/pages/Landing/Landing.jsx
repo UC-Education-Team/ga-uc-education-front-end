@@ -1,5 +1,5 @@
 import * as React from "react";
-import piggySvg from "../images/piggy-bank.svg";
+import piggySvg from "../images/newpiggy.jpg";
 import barchart from "../images/barchart.svg";
 import DoughnutChart from "./Doughnut";
 
@@ -38,7 +38,7 @@ const Landing = ({ user }) => {
               fontSize: "1rem",
             }}
           >
-            Training Progress XX%{" "}
+           <h3>  Training Progress <span>80%</span></h3>
           </Item>
         </Grid>
         <Grid item xs={4}>
@@ -52,7 +52,7 @@ const Landing = ({ user }) => {
               borderradius: "5px",
             }}
           >
-            YTD Commission
+            <h3>YTD Commission</h3>
           </Item>
         </Grid>
         <Grid item xs={4}>
