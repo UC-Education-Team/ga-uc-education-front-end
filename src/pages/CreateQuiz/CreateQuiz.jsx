@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-
+import styles from './CreateQuiz.module.css'
 function CreateQuiz({ createQuiz }) {
 
   const [formData, setFormData] = useState({})
@@ -51,7 +51,7 @@ function CreateQuiz({ createQuiz }) {
   }, [validForm])
 
   return (
-    <div style={{ width: '100%' }}>
+    <div style={{ width: '100%', margin: '30px' }}>
       <h1>This is a quiz</h1>
       <form ref={formElement} onSubmit={handleSubmit}>
 
@@ -65,7 +65,7 @@ function CreateQuiz({ createQuiz }) {
           rows="3"
           onChange={handleChange}
         >{formData.question1}</textarea>
-        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-evenly', flexWrap: 'wrap' }} ref={question1Options}>
+        <div className={styles.question} ref={question1Options}>
           {['a', 'b', 'c', 'd'].map(ltr => (
             <div key={ltr} style={{ textAlign: 'center' }}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
@@ -93,7 +93,7 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question2}</textarea>
 
-        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-evenly', flexWrap: 'wrap' }} ref={question2Options}>
+        <div className={styles.question} ref={question2Options}>
           {['a', 'b', 'c', 'd'].map(ltr => (
             <div key={ltr} style={{ textAlign: 'center' }}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
@@ -121,7 +121,7 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question3}</textarea>
 
-        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-evenly', flexWrap: 'wrap' }} ref={question3Options}>
+        <div className={styles.question} ref={question3Options}>
           {['a', 'b', 'c', 'd'].map(ltr => (
             <div key={ltr} style={{ textAlign: 'center' }}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
@@ -149,7 +149,7 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question4}</textarea>
 
-        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-evenly', flexWrap: 'wrap' }} ref={question4Options}>
+        <div className={styles.question} ref={question4Options}>
           {['a', 'b', 'c', 'd'].map(ltr => (
             <div key={ltr} style={{ textAlign: 'center' }}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
@@ -177,7 +177,7 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question5}</textarea>
 
-        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-evenly', flexWrap: 'wrap' }} ref={question5Options}>
+        <div className={styles.question} ref={question5Options}>
           {[' a', 'b', 'c', 'd'].map(ltr => (
             <div key={ltr} style={{ textAlign: 'center' }}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
