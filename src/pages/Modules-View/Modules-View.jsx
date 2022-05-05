@@ -3,10 +3,10 @@ import Modules from "../../components/Modules/Modules.jsx"
 
 import React from 'react'
 
-const ModulesView = ({modules, moduleSelect, handleSelect}) => {
+const ModulesView = ({modules, moduleSelect, handleSelect, lessons}) => {
   return (
     <>
-    <Modules modules={modules} handleSelect={handleSelect} moduleSelect={moduleSelect} />
+    <Modules modules={modules} handleSelect={handleSelect} moduleSelect={moduleSelect} lessons={lessons} />
     </>
   )
 }

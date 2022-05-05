@@ -2,7 +2,7 @@ body {
   background-color: E5E5E5;
 }
 
-.container {
+.ModuleContainer {
   background-color: white;
   align-items: flex-start;
   margin-top: 50px;
@@ -75,6 +75,7 @@ border: 1px solid #8A8A8A;
 }
 .Help{
   text-align: right;
+  margin-right: 1%;
 }
 
 .HelpButton{
@@ -87,4 +88,11 @@ border: 1px solid #AAAAAA;
 box-sizing: border-box;
 border-radius: 5px;
 color: white !important;
+}
+
+.LessonWindow{
+  padding-top: 3%;
+  padding-bottom: 3%;
+  width: 80%;
+  
 }

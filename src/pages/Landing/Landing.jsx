@@ -1,9 +1,11 @@
 import * as React from "react";
-import piggySvg from "../images/piggy-bank.svg";
+import piggySvg from "../images/newpiggy.jpg";
 import barchart from "../images/barchart.svg";
 import DoughnutChart from "./Doughnut";
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
-import { Paper, Grid, styled } from "@mui/material";
+import { Paper, Grid, styled, Box } from "@mui/material";
 
 import styles from "./Landing.module.css";
 import Group from "./Group.png";
@@ -19,11 +21,25 @@ const Landing = ({ user }) => {
     <main className={styles.container}>
       <div className={styles.HeaderArea}>
         <div><img src={Group} alt="logo" /></div>
+        
+        <Box>
         <div><h1 className={styles.title}>
         Hi, {user ? user.name : "friend"}!
-      </h1></div>
+        <p>Bonjou, {user ? user.name : "friend"}!</p>
+      </h1>  
+      <Stack spacing={2}>
+      <Button sx={{
+                    background: "green" 
+                  }} variant="contained">Eng</Button>
+      <Button sx={{
+                    background: "lightgreen" 
+                  }}variant="contained">Hat</Button>
+      </Stack>
+      </div></Box>
+
+
+     
         </div>
-      
 
       <Grid container rowSpacing={2} spacing={8}>
         <Grid item xs={4}>
@@ -38,7 +54,7 @@ const Landing = ({ user }) => {
               fontSize: "1rem",
             }}
           >
-            Training Progress XX%{" "}
+           <h3>  Training Progress <span style={{color: 'green'}}>80%</span></h3>
           </Item>
         </Grid>
         <Grid item xs={4}>
@@ -52,7 +68,7 @@ const Landing = ({ user }) => {
               borderradius: "5px",
             }}
           >
-            YTD Commission
+            <h3>YTD Commission</h3>
           </Item>
         </Grid>
         <Grid item xs={4}>
@@ -66,7 +82,7 @@ const Landing = ({ user }) => {
               borderradius: "5px",
             }}
           >
-            Goalsffg
+            <h3> Goals</h3>
           </Item>
         </Grid>
         <Grid item xs={4}>
@@ -123,7 +139,7 @@ const Landing = ({ user }) => {
               className=""
               src={piggySvg}
               alt=""
-              style={{ width: "100%", height: "100%" }}
+              style={{ width: "60%", marginTop: "10%"}}
             />
           </Item>
         </Grid>

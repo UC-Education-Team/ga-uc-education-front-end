@@ -40,7 +40,7 @@ const SignupForm = props => {
   }
 
   return (
-    <div className='signUpForm mx-auto'>
+    <div className='signUpForm'>
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
