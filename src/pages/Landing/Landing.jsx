@@ -38,7 +38,7 @@ const Landing = ({ user }) => {
               fontSize: "1rem",
             }}
           >
-           <h3>  Training Progress <span>80%</span></h3>
+           <h3>  Training Progress <span style={{color: 'green'}}>80%</span></h3>
           </Item>
         </Grid>
         <Grid item xs={4}>
