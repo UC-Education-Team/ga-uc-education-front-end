@@ -11,6 +11,7 @@ import ContentThree from './content_screen3.png'
 import ContentFour from './content_screen4.png'
 
 const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
+  const [currentQuizzes, setCurrentQuizzes] = useState([])
   const progressBarFun = (now) => {
     if (now < 40) {
       return <ProgressBar variant="danger" now={now} animated className="progressbar" />
@@ -28,10 +29,14 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
     };
 
     function filterQuizzes() {
-
+      quizzes.forEach(quiz => {
+        if (quiz?.module?._id === moduleSelect) {
+          return setCurrentQuizzes([...currentQuizzes, quiz])
+        }
+      })
+      console.log(currentQuizzes)
     }
 
-    console.log('Module Select: ', moduleSelect)
     return (
       <Carousel activeIndex={index} onSelect={handleSelect} nextIcon={""} prevIcon={""} nextLabel={""}>
         <Carousel.Item>
@@ -52,7 +57,7 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
             width={100}
             height={500}
           />
-        </Carousel.Item >
+        </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100  carouselimg"
@@ -70,8 +75,8 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
             width={100}
             height={500}
           />
-        </Carousel.Item >
-      </Carousel >
+        </Carousel.Item>
+      </Carousel>
     );
   }
   return (
@@ -125,6 +130,10 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
             </>
             : null}
 
+          <div className="columnlearn">Learn about</div>
+          <div className="LessonWindow"><ControlledCarousel /></div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor amet suspendisse nisi vulputate mauris ut.</p>
+
         </div>
         <div>
           <Card className="ProgressCard">
@@ -142,64 +151,7 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
             })}
           </Card>
         </div>
-
-        {moduleSelect !== "" ?
-          <>
-            <div className="columlessons"> Lessons</div>
-            {lessons === [] ?
-              <div className="modulerow">
-                {lessons.map((lesson) => {
-                  return (
-                    <ModuleCard
-                      modules={lesson}
-                      handleSelect={handleSelect}
-                      moduleSelect={moduleSelect}
-                      id={`${lesson.name}-key}`}
-                    />
-                  )
-                })}
-              </div>
-              : <p id="noLesson">This module does not have any lessons</p>}
-
-            <div className="columnlearn">Quizzes</div>
-            {quizzes === [] ?
-              <div className="modulerow">
-                {quizzes.map((quiz) => {
-                  return (
-                    <ModuleCard
-                      modules={quiz}
-                      handleSelect={handleSelect}
-                      moduleSelect={moduleSelect}
-                      id={`${quiz.name}-key}`}
-                    />
-                  )
-                })}
-              </div>
-              : <p id="noLesson">This module does not have any quizzes</p>}
-          </>
-          : null}
-
-        <div className="columnlearn">Learn about</div>
-        <div className="LessonWindow"><ControlledCarousel /></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor amet suspendisse nisi vulputate mauris ut.</p>
-
       </div>
-      <div>
-        <Card className="ProgressCard">
-          <h1 style={{ fontSize: '1.3rem', textAlign: 'center', marginBottom: '4vh', marginTop: '15px' }}>Learning Progress</h1>
-          {modules.map((module) => {
-            return (
-              <div className="ProgressItem">
-                <h1 className="progressname">{module.name}</h1>
-                <div className="ProgressAndLabel">{progressBarFun(module.number)}  <p className="ProgressLabel"> {module.number}%</p></div>
-
-                <hr />
-              </div>
-            );
-          })}
-        </Card>
-      </div>
-    </div >
     </>
   );
 };
