@@ -26,12 +26,8 @@ h3{
 }
 
 .LanguageButton{
-padding: 8px 16px;
-position: static;
 width: 62px;
 height: 33px;
-left: 8px;
-top: 8px;
 background-color: #36AA00 !important;
 color: white !important;
 border: 1px solid #AAAAAA;
@@ -41,20 +37,13 @@ order: 0;
 flex-grow: 0;
 }
 .LanguageButtonTwo{
-padding: 8px 16px;
-position: static;
 width: 62px;
 height: 33px;
-left: 8px;
-top: 8px;
 background-color: #36AA00 !important;
 opacity: .6;
 color: white !important;
 border: 1px solid #AAAAAA;
 border-radius: 5px;
-flex: none;
-order: 0;
-flex-grow: 0;
 }
 .LanguageTwo{
 color: #36AA00 !important;
