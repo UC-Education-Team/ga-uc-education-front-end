@@ -24,9 +24,13 @@ const NavBar = ({ user, handleLogout }) => {
             <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
             <li><Link to="/changePassword">Change Password</Link></li>
             <li><Link to="/modules">Modules</Link></li>
+            <li><Link to="/create-module">Create Module</Link></li>
+            <li><Link to="/create-lesson">Create Lesson</Link></li>
+            <li><Link to="/create-quiz">Create Quiz</Link></li>
+
           </ul>
         </nav>
-      :
+        :
         <nav>
           <ul>
             <li><Link to="/login">Log In</Link></li>

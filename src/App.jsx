@@ -13,11 +13,19 @@ import Lessons from './pages/Lessons/Lessons'
 import Quizzes from './pages/Quizzes/Quizzes'
 import './App.css'
 import * as moduleService from './services/moduleService.js'
+import CreateModule from './pages/CreateModule/CreateModule'
+import CreateQuiz from './pages/CreateQuiz/CreateQuiz'
+import CreateLesson from './pages/CreateLesson/CreateLesson'
+import * as quizService from './services/quizService'
+import * as lessonService from './services/lessonService'
+import './App.css'
 
 
 const App = () => {
   const [modules, setModules] = useState([])
   const [user, setUser] = useState(authService.getUser())
+  const [lessons, setLessons] = useState([])
+  const [quizzes, setQuizzes] = useState([])
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -30,16 +38,32 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+  const newModule = async (_module) => {
+    const newModule = await moduleService.createModule(_module)
+    setModules([...modules, newModule])
+    navigate('/')
+  }
+
+  const newLesson = async (lesson) => {
+    const newLesson = await lessonService.createLesson(lesson)
+    setLessons([...lessons, newLesson])
+    navigate('/')
+  }
+
+  const newQuiz = async (quiz) => {
+    const newQuiz = await quizService.createQuiz(quiz)
+    setQuizzes([...quizzes, newQuiz])
+    navigate('/')
+  }
   useEffect(() => {
     moduleService.getAll()
-    .then(allModules => setModules(allModules))
+      .then(allModules => setModules(allModules))
   }, [])
 
   return (
     <div className='AppView'>
       <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper"/>
-      <div className="AppContent">
-      <Routes >
+      <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
           path="/signup"
@@ -55,13 +79,13 @@ const App = () => {
         />
         <Route
           path="/changePassword"
-          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
+          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin} /> : <Navigate to="/login" />}
         />
         <Route
           path="/modules"
-          element={<ModulesView 
-          modules={modules}
-        />} />
+          element={<ModulesView
+            modules={modules}
+          />} />
         <Route
           path="/lessons"
           element={<Lessons />}
@@ -70,13 +94,23 @@ const App = () => {
           path="/quizzes"
           element={<Quizzes />}
         />
-         <Route
+        <Route
+          path="/create-module"
+          element={<CreateModule createModule={newModule} />}
+        />
+        <Route
+          path="/create-lesson"
+          element={<CreateLesson createLesson={newLesson} />}
+        />
+        <Route
+          path="/create-quiz"
+          element={<CreateQuiz createQuiz={newQuiz} />} />
+        <Route
           path="/landing"
           element={user ? <Landing /> : <Navigate to="/login" />}
-          />
+        />
       </Routes>
       </div>
-    </div>
   )
 }
 
