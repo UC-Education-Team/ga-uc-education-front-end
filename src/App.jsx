@@ -83,8 +83,8 @@ const App = () => {
     if (moduleSelect !== "") {
       lessonService.getModuleLessons(moduleSelect)
         .then(module => {
-          setLessons([module.lessons])
-          setQuizzes([module.quizzes])
+          setLessons(module.lesson)
+          setQuizzes(module.quiz)
         })
       console.log(lessons)
     } else {
