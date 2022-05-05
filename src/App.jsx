@@ -19,6 +19,7 @@ import CreateLesson from './pages/CreateLesson/CreateLesson'
 import * as quizService from './services/quizService'
 import * as lessonService from './services/lessonService'
 import './App.css'
+import Modules from './components/Modules/Modules';
 
 
 const App = () => {
@@ -58,8 +59,9 @@ const App = () => {
   useEffect(() => {
     moduleService.getAll()
       .then(allModules => setModules(allModules))
+      
   }, [])
-
+  console.log(modules)
   return (
     <div className='AppView'>
       <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper"/>
