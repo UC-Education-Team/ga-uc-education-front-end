@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import ModuleCard from "../ModuleCard/ModuleCard";
 import { Card, ProgressBar, Carousel } from "react-bootstrap";
 import Question from './Vector.png'
-import ContentOne from './content_screen1.png'
-import ContentTwo from './content_screen2.png'
-import ContentThree from './content_screen3.png'
-import ContentFour from './content_screen4.png'
+import ContentOne from './content_screen1 .png'
+import ContentTwo from './content_screen2 .png'
+import ContentThree from './content_screen3 .png'
+import ContentFour from './content_screen4 .png'
 
 const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
   const progressBarFun = (now) =>{
