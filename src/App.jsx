@@ -96,7 +96,7 @@ const App = () => {
     <div className='AppView'>
       <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper" />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={user ? <Landing user={user}/> : <Navigate to="/login" />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}

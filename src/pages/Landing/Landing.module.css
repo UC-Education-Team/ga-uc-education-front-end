@@ -25,3 +25,27 @@ h3{
   color: #1a1a1a;
 }
 
+.LanguageButton{
+width: 62px;
+height: 33px;
+background-color: #36AA00 !important;
+color: white !important;
+border: 1px solid #AAAAAA;
+border-radius: 5px;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.LanguageButtonTwo{
+width: 62px;
+height: 33px;
+background-color: #36AA00 !important;
+opacity: .6;
+color: white !important;
+border: 1px solid #AAAAAA;
+border-radius: 5px;
+}
+.LanguageTwo{
+color: #36AA00 !important;
+opacity: .6;
+}
