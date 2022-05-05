@@ -1,5 +1,6 @@
 import * as React from "react";
 import piggySvg from "../images/newpiggy.jpg";
+import graph from "./graph.png";
 import barchart from "../images/barchart.svg";
 import DoughnutChart from "./Doughnut";
 import Button from '@mui/material/Button';
@@ -108,7 +109,7 @@ const Landing = ({ user }) => {
           >
             <img
               className=""
-              src={barchart}
+              src={graph}
               alt=""
               style={{ width: "100%", height: "100%" }}
             />
