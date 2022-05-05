@@ -20,7 +20,6 @@ import * as lessonService from './services/lessonService'
 const App = () => {
   const [modules, setModules] = useState([])
   const [user, setUser] = useState(authService.getUser())
-  const [modules, setModules] = useState([])
   const [lessons, setLessons] = useState([])
   const [quizzes, setQuizzes] = useState([])
   const navigate = useNavigate()
@@ -42,13 +41,13 @@ const App = () => {
   }
 
   const newLesson = async (lesson) => {
-    const newLesson = await lessonService.createModule(lesson)
+    const newLesson = await lessonService.createLesson(lesson)
     setLessons([...lessons, newLesson])
     navigate('/')
   }
 
   const newQuiz = async (quiz) => {
-    const newQuiz = await quizService.createModule(quiz)
+    const newQuiz = await quizService.createQuiz(quiz)
     setQuizzes([...quizzes, newQuiz])
     navigate('/')
   }
@@ -97,11 +96,11 @@ const App = () => {
         />
         <Route
           path="/create-lesson"
-          element={<CreateLesson />}
+          element={<CreateLesson createLesson={newLesson} />}
         />
         <Route
           path="/create-quiz"
-          element={<CreateQuiz />} />
+          element={<CreateQuiz createQuiz={newQuiz} />} />
         <Route
           path="/landing"
           element={user ? <Landing /> : <Navigate to="/login" />}

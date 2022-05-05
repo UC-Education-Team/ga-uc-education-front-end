@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-function CreateQuiz(props) {
+function CreateQuiz({ createQuiz }) {
 
   const [formData, setFormData] = useState({ name: '' })
   const [validForm, setValidForm] = useState(false)
@@ -21,6 +21,11 @@ function CreateQuiz(props) {
     console.log(e.target.parent)
   }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    return createQuiz(formData)
+  }
+
   useEffect(() => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
   }, [validForm])
@@ -28,7 +33,7 @@ function CreateQuiz(props) {
   return (
     <div>
       <h1>This is a quiz</h1>
-      <form ref={formElement} onSubmit={(e) => e.preventDefault()}>
+      <form ref={formElement} onSubmit={handleSubmit}>
         {/* Question 1 */}
         <p>Question 1</p>
         <textarea

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-function CreateQuiz(props) {
+function CreateQuiz({ createLesson }) {
 
   const [formData, setFormData] = useState({ name: '', text: '' })
   const [validForm, setValidForm] = useState(false)
@@ -11,6 +11,11 @@ function CreateQuiz(props) {
     console.log(formData)
   }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    return createLesson(formData)
+  }
+
   useEffect(() => {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
   }, [validForm])
@@ -18,7 +23,7 @@ function CreateQuiz(props) {
   return (
     <div>
       <h1>Create A Lesson Here</h1>
-      <form ref={formElement} onSubmit={() => console.log('submitted')}>
+      <form ref={formElement} onSubmit={handleSubmit}>
         {/* Lesson Name*/}
         <p>Name</p>
         <input
@@ -40,7 +45,7 @@ function CreateQuiz(props) {
           rows="10"
           onChange={handleChange}
         >{formData.text}</textarea>
-        <button disabled={!validForm} type="submit">Create Lesson</button>
+        <button disabled={false} type="submit">Create Lesson</button>
       </form>
     </div>
   );
