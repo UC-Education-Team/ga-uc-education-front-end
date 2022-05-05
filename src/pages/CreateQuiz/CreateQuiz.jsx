@@ -9,16 +9,14 @@ function CreateQuiz({ createQuiz }) {
   const question1Options = useRef()
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
-    console.log(formData)
   }
 
   function correctAnswer(e) {
-    setCorrectAnswers({ ...correctAnswers, [e.target.id]: e.target.value })
-    console.log(question1Options)
-    question1Options.current.childNodes.forEach(node => (
-      node.name === e.target.name ? e.target.style.border = 'green solid 3px' : e.target.style.border = 'black 1px black'
-    ))
-    console.log(e.target.parent)
+    setCorrectAnswers({ ...correctAnswers, [e.target.id]: e.target.name })
+    question1Options.current.childNodes.forEach(div => {
+      div.childNodes[1].style.border = 'black 1px solid'
+    })
+    e.target.style.border = 'green 2px solid'
   }
 
   function handleSubmit(e) {
@@ -46,14 +44,15 @@ function CreateQuiz({ createQuiz }) {
         >{formData.question1}</textarea>
         <div ref={question1Options}>
           {['a', 'b', 'c', 'd'].map(ltr => (
-            <>
+            <div key={ltr}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
+                onDoubleClick={correctAnswer}
                 name={`${ltr}`}
                 id="question1"
                 type="text" />
-            </>
+            </div>
           ))}
         </div>
 
@@ -68,9 +67,9 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question2}</textarea>
 
-        <div ref={question1Options}>
+        <div>
           {['a', 'b', 'c', 'd'].map(ltr => (
-            <>
+            <div key={ltr}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
@@ -78,7 +77,7 @@ function CreateQuiz({ createQuiz }) {
                 name={`${ltr}`}
                 id="question2"
                 type="text" />
-            </>
+            </div>
           ))}
         </div>
 
@@ -93,9 +92,9 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question3}</textarea>
 
-        <div ref={question1Options}>
+        <div>
           {['a', 'b', 'c', 'd'].map(ltr => (
-            <>
+            <div key={ltr}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
@@ -103,7 +102,7 @@ function CreateQuiz({ createQuiz }) {
                 name={`${ltr}`}
                 id="question3"
                 type="text" />
-            </>
+            </div>
           ))}
         </div>
 
@@ -118,9 +117,9 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question4}</textarea>
 
-        <div ref={question1Options}>
+        <div>
           {['a', 'b', 'c', 'd'].map(ltr => (
-            <>
+            <div key={ltr}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
@@ -128,7 +127,7 @@ function CreateQuiz({ createQuiz }) {
                 name={`${ltr}`}
                 id="question4"
                 type="text" />
-            </>
+            </div>
           ))}
         </div>
 
@@ -143,9 +142,9 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question5}</textarea>
 
-        <div ref={question1Options}>
+        <div>
           {['a', 'b', 'c', 'd'].map(ltr => (
-            <>
+            <div key={ltr}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
@@ -153,7 +152,7 @@ function CreateQuiz({ createQuiz }) {
                 name={`${ltr}`}
                 id="question5"
                 type="text" />
-            </>
+            </div>
           ))}
         </div>
 
