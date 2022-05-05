@@ -10,7 +10,7 @@ import ContentTwo from './content_screen2.png'
 import ContentThree from './content_screen3.png'
 import ContentFour from './content_screen4.png'
 
-const Modules = ({ modules, handleSelect, moduleSelect }) => {
+const Modules = ({ modules, handleSelect, moduleSelect, lessons }) => {
   const progressBarFun = (now) =>{
     if(now <40){
       return <ProgressBar variant="danger" now={now} animated className="progressbar" /> 
@@ -91,7 +91,27 @@ const Modules = ({ modules, handleSelect, moduleSelect }) => {
           </div>
         </div>
 
-        <div className="columlessons"> Core modules {">"} Lessons</div>
+        {moduleSelect !== "" ?
+          <>
+          <div className="columlessons"> Core modules {">"} Lessons</div>
+          {lessons === [] ?
+              <div className="modulerow">
+                {lessons.map((lesson) => {
+                  return (
+                    <ModuleCard
+                      modules={lesson}
+                      handleSelect={handleSelect}
+                      moduleSelect={moduleSelect}
+                      id={`${lesson.name}-key}`}
+                    />
+                  )
+                })}
+              </div>
+          : null }
+  
+          <div className="columnlearn">Learn about</div>
+          </>
+        : null }
 
         <div className="columnlearn">Learn about</div>
         <div className="LessonWindow"><ControlledCarousel/></div>
