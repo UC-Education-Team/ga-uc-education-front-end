@@ -126,7 +126,6 @@ const App = () => {
             moduleSelect={moduleSelect}
             lessons={lessons}
             quizzes={quizzes}
-            user={user}
           />} />
         <Route
           path="/lessons"

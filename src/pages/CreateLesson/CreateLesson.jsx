@@ -12,7 +12,7 @@ function CreateQuiz({ createLesson }) {
   }
 
   function handleSubmit(e) {
-    e.preventDefault()
+    // e.preventDefault()
     return createLesson(formData)
   }
 
