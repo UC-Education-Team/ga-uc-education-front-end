@@ -60,10 +60,9 @@ const App = () => {
   }, [])
 
   return (
-    <div className='AppView'>
+    <>
       <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper"/>
-      <div className="AppContent">
-      <Routes >
+      <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
           path="/signup"
@@ -109,8 +108,8 @@ const App = () => {
           path="/landing"
           element={user ? <Landing /> : <Navigate to="/login" />}
         />
-      </Routes >
-    </>
+      </Routes>
+      </>
   )
 }
 
