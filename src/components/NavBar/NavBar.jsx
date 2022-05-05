@@ -39,15 +39,15 @@ const NavBar = ({ user, handleLogout }) => {
         </nav>
       } */}
       {user ?
-      <div style={{ height: '100vh', overflow: 'scroll initial' }}>
-      <CDBSidebar textColor="black" backgroundColor="white" className='sidebar'>
+      <div style={{ height: '100vh',  }}>
+      <CDBSidebar  defaultOpen textColor="black" backgroundColor="white" className='sidebar' >
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <img src={logo} alt="logo"
                />
         </CDBSidebarHeader>
 
-        <CDBSidebarContent className="sidebar-content">
-          <CDBSidebarMenu>
+        <CDBSidebarContent defaultOpen >
+          <CDBSidebarMenu defaultOpen >
             <NavLink exact to="/" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="th-large" style={{ color: 'black' }}>Dashboard</CDBSidebarMenuItem>
             </NavLink>
@@ -55,13 +55,13 @@ const NavBar = ({ user, handleLogout }) => {
               <CDBSidebarMenuItem icon="book" style={{ color: 'black' }}>Modules</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="user">Events Center</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="table">Events Center</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>
-
-        <CDBSidebarFooter >
-        <Link to="/login" onClick={handleLogout}>LOG OUT</Link>
+        <CDBSidebarFooter>
+        <CDBSidebarMenuItem icon="user"><Link to="/login" onClick={handleLogout}>Log Out</Link></CDBSidebarMenuItem>
+        
         </CDBSidebarFooter>
       </CDBSidebar>
     </div>
