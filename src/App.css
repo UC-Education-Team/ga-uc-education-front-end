@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.AppView{
+display: flex;
+flex-direction: row;
+
+}
+
+.AppContent{
+margin-left: 50px;
+width: 100%;
+
+  
+} 

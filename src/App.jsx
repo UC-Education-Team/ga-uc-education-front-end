@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
@@ -16,6 +17,8 @@ import CreateLesson from './pages/CreateLesson/CreateLesson'
 import * as moduleService from './services/moduleService'
 import * as quizService from './services/quizService'
 import * as lessonService from './services/lessonService'
+import './App.css'
+
 
 const App = () => {
   const [modules, setModules] = useState([])
@@ -57,9 +60,10 @@ const App = () => {
   }, [])
 
   return (
-    <>
-      <NavBar user={user} handleLogout={handleLogout} />
-      <Routes>
+    <div className='AppView'>
+      <NavBar user={user} handleLogout={handleLogout} className="sidebar-wrapper"/>
+      <div className="AppContent">
+      <Routes >
         <Route path="/" element={<Landing user={user} />} />
         <Route
           path="/signup"

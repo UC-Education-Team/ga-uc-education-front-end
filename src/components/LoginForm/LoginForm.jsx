@@ -59,7 +59,7 @@ const LoginForm = props => {
       </div>
       <div id={styles.redirectContainer}>
         <p>Don't have an account? 
-          <Link to="/">Sign Up</Link>
+          <Link to="/signup">Sign Up</Link>
         </p>
         <p>Forgot password?</p>
       </div>
