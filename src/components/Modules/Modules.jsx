@@ -114,6 +114,7 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons }) => {
           <div className="columnlearn">Learn about</div>
           </>
         : null }
+
       </div>
       <div>
         <Card className="ProgressCard">
