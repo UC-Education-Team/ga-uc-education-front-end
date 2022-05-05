@@ -3,6 +3,7 @@ import styles from "./Module.css";
 import { Link } from "react-router-dom";
 import ModuleCard from "../ModuleCard/ModuleCard";
 import { Card, ProgressBar } from "react-bootstrap";
+import Question from './Vector.png'
 
 const Modules = ({ modules, handleSelect, moduleSelect }) => {
   const progressBarFun = (now) =>{
@@ -19,6 +20,7 @@ const Modules = ({ modules, handleSelect, moduleSelect }) => {
     <div className="ModuleView">
       <div className="container">
         <div className="columnmodules">
+          <div className="Help"> <img src={Question} alt="" /> <button className="HelpButton">Feedback</button></div>
           <div><p>Core Modules</p></div>
           
           <div className="modulerow">
@@ -41,13 +43,13 @@ const Modules = ({ modules, handleSelect, moduleSelect }) => {
       </div>
       <div>
         <Card className="ProgressCard">
-          <h1 style={{fontSize:'1.3rem', textAlign:'center', margin:'auto', marginBottom:'5vh'}}>Learning Progress</h1>
+          <h1 style={{fontSize:'1.3rem', textAlign:'center', marginBottom:'4vh' , marginTop:'15px'}}>Learning Progress</h1>
           {modules.map((module) => {
             const now = Math.floor(Math.random() * 100)
             return (
               <div className="ProgressItem">
                 <h1 className="progressname">{module.name}</h1>
-                <div className="ProgressAndLabel">{progressBarFun(now)}  <p className="ProgressLabel"> {now}%</p></div>
+                <div className="ProgressAndLabel">{progressBarFun(module.number)}  <p className="ProgressLabel"> {module.number}%</p></div>
                
                 <hr />
               </div>
