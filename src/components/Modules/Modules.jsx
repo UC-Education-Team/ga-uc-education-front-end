@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import ModuleCard from "../ModuleCard/ModuleCard";
 import { Card, ProgressBar, Carousel } from "react-bootstrap";
 import Question from './Vector.png'
+import ContentOne from './content_screen1.png'
+import ContentTwo from './content_screen2.png'
+import ContentThree from './content_screen3.png'
+import ContentFour from './content_screen4.png'
 
 const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
   const progressBarFun = (now) => {
@@ -33,47 +37,41 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
         <Carousel.Item>
           <img
             className="d-block w-100 carousel-image"
-            src="https://media.giphy.com/media/fsnF17BpCvjmE9SMTh/giphy.gif?text=First slide&bg=373940"
+            src={ContentOne}
             alt="First slide"
             width={100}
             height={500}
+
           />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100 carousel-image"
-            src="https://media.giphy.com/media/5xtDarwd6J9RErfp5aU/giphy.gif?text=Second slide&bg=282c34"
+            src={ContentTwo}
             alt="Second slide"
             width={100}
             height={500}
           />
-
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
+        </Carousel.Item >
         <Carousel.Item>
           <img
             className="d-block w-100  carouselimg"
-            src="https://media.giphy.com/media/Kf0cxquEm64pu0IuCw/giphy.gif?text=Third slide&bg=20232a"
+            src={ContentThree}
             alt="Third slide"
             width={100}
             height={500}
           />
-
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
         </Carousel.Item>
-      </Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100  carouselimg"
+            src={ContentFour}
+            alt="Third slide"
+            width={100}
+            height={500}
+          />
+        </Carousel.Item >
+      </Carousel >
     );
   }
   return (
@@ -144,7 +142,64 @@ const Modules = ({ modules, handleSelect, moduleSelect, lessons, quizzes }) => {
             })}
           </Card>
         </div>
+
+        {moduleSelect !== "" ?
+          <>
+            <div className="columlessons"> Lessons</div>
+            {lessons === [] ?
+              <div className="modulerow">
+                {lessons.map((lesson) => {
+                  return (
+                    <ModuleCard
+                      modules={lesson}
+                      handleSelect={handleSelect}
+                      moduleSelect={moduleSelect}
+                      id={`${lesson.name}-key}`}
+                    />
+                  )
+                })}
+              </div>
+              : <p id="noLesson">This module does not have any lessons</p>}
+
+            <div className="columnlearn">Quizzes</div>
+            {quizzes === [] ?
+              <div className="modulerow">
+                {quizzes.map((quiz) => {
+                  return (
+                    <ModuleCard
+                      modules={quiz}
+                      handleSelect={handleSelect}
+                      moduleSelect={moduleSelect}
+                      id={`${quiz.name}-key}`}
+                    />
+                  )
+                })}
+              </div>
+              : <p id="noLesson">This module does not have any quizzes</p>}
+          </>
+          : null}
+
+        <div className="columnlearn">Learn about</div>
+        <div className="LessonWindow"><ControlledCarousel /></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor amet suspendisse nisi vulputate mauris ut.</p>
+
       </div>
+      <div>
+        <Card className="ProgressCard">
+          <h1 style={{ fontSize: '1.3rem', textAlign: 'center', marginBottom: '4vh', marginTop: '15px' }}>Learning Progress</h1>
+          {modules.map((module) => {
+            return (
+              <div className="ProgressItem">
+                <h1 className="progressname">{module.name}</h1>
+                <div className="ProgressAndLabel">{progressBarFun(module.number)}  <p className="ProgressLabel"> {module.number}%</p></div>
+
+                <hr />
+              </div>
+            );
+          })}
+        </Card>
+      </div>
+    </div >
     </>
   );
 };

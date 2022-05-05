@@ -81,10 +81,14 @@ const App = () => {
   useEffect(() => {
     if (moduleSelect !== "") {
       lessonService.getModuleLessons(moduleSelect)
-        .then(module => setLessons([module.lessons]))
+        .then(module => {
+          setLessons([module.lessons])
+          setQuizzes([module.quizzes])
+        })
       console.log(lessons)
     } else {
       setLessons([])
+      setQuizzes([])
     }
   }, [moduleSelect])
 
