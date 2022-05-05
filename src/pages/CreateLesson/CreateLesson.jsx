@@ -34,6 +34,16 @@ function CreateQuiz({ createLesson }) {
           value={formData.name}
           id='name'
         />
+      
+        <p>Reference Module ID</p>
+        <input
+          required
+          type="text"
+          name='id'
+          onChange={handleChange}
+          value={formData.id}
+          id='id'
+        />
 
         {/* Lesson Content*/}
         <p>Lesson Material</p>
