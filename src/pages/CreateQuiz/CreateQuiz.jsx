@@ -28,7 +28,7 @@ function CreateQuiz({ createQuiz }) {
     questionSet.current.childNodes.forEach(div => {
       div.childNodes[1].style.border = 'black 1px solid'
     })
-    e.target.style.border = 'green 2px solid'
+    e.target.style.border = 'green 3px solid'
   }
 
   function handleSubmit(e) {
@@ -51,7 +51,7 @@ function CreateQuiz({ createQuiz }) {
   }, [validForm])
 
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <h1>This is a quiz</h1>
       <form ref={formElement} onSubmit={handleSubmit}>
 
@@ -65,9 +65,9 @@ function CreateQuiz({ createQuiz }) {
           rows="3"
           onChange={handleChange}
         >{formData.question1}</textarea>
-        <div ref={question1Options}>
+        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-evenly', flexWrap: 'wrap' }} ref={question1Options}>
           {['a', 'b', 'c', 'd'].map(ltr => (
-            <div key={ltr}>
+            <div key={ltr} style={{ textAlign: 'center' }}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
@@ -76,6 +76,7 @@ function CreateQuiz({ createQuiz }) {
                 id="question1"
                 type="text"
                 className='1'
+                style={{ width: '15vw', minWidth: '200px' }}
               />
             </div>
           ))}
@@ -92,9 +93,9 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question2}</textarea>
 
-        <div ref={question2Options}>
+        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-evenly', flexWrap: 'wrap' }} ref={question2Options}>
           {['a', 'b', 'c', 'd'].map(ltr => (
-            <div key={ltr}>
+            <div key={ltr} style={{ textAlign: 'center' }}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
@@ -103,6 +104,7 @@ function CreateQuiz({ createQuiz }) {
                 id="question2"
                 type="text"
                 className='2'
+                style={{ width: '15vw', minWidth: '200px' }}
               />
             </div>
           ))}
@@ -119,9 +121,9 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question3}</textarea>
 
-        <div ref={question3Options}>
+        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-evenly', flexWrap: 'wrap' }} ref={question3Options}>
           {['a', 'b', 'c', 'd'].map(ltr => (
-            <div key={ltr}>
+            <div key={ltr} style={{ textAlign: 'center' }}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
@@ -130,6 +132,7 @@ function CreateQuiz({ createQuiz }) {
                 id="question3"
                 type="text"
                 className='3'
+                style={{ width: '15vw', minWidth: '200px' }}
               />
             </div>
           ))}
@@ -146,9 +149,9 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question4}</textarea>
 
-        <div ref={question4Options}>
+        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-evenly', flexWrap: 'wrap' }} ref={question4Options}>
           {['a', 'b', 'c', 'd'].map(ltr => (
-            <div key={ltr}>
+            <div key={ltr} style={{ textAlign: 'center' }}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
@@ -157,6 +160,7 @@ function CreateQuiz({ createQuiz }) {
                 id="question4"
                 type="text"
                 className='4'
+                style={{ width: '15vw', minWidth: '200px' }}
               />
             </div>
           ))}
@@ -173,9 +177,9 @@ function CreateQuiz({ createQuiz }) {
           onChange={handleChange}
         >{formData.question5}</textarea>
 
-        <div ref={question5Options}>
+        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-evenly', flexWrap: 'wrap' }} ref={question5Options}>
           {[' a', 'b', 'c', 'd'].map(ltr => (
-            <div key={ltr}>
+            <div key={ltr} style={{ textAlign: 'center' }}>
               <p>Answer Choice {ltr.toUpperCase()}</p>
               <input
                 onChange={handleChange}
@@ -184,6 +188,7 @@ function CreateQuiz({ createQuiz }) {
                 id="question5"
                 type="text"
                 className='5'
+                style={{ width: '15vw', minWidth: '200px' }}
               />
             </div>
           ))}
