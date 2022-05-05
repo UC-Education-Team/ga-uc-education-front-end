@@ -10,6 +10,7 @@ import {
 import { NavLink } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import logo from './logo.png';
+import "./Navbar.css";
 
 
 const NavBar = ({ user, handleLogout }) => {
@@ -22,6 +23,7 @@ const NavBar = ({ user, handleLogout }) => {
             <li><Link to="/profiles">Profiles</Link></li>
             <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
             <li><Link to="/changePassword">Change Password</Link></li>
+            <li><Link to="/modules">Modules</Link></li>
           </ul>
         </nav>
       :
@@ -34,7 +36,7 @@ const NavBar = ({ user, handleLogout }) => {
       } */}
       {user ?
       <div style={{ height: '100vh', overflow: 'scroll initial' }}>
-      <CDBSidebar textColor="black" backgroundColor="white">
+      <CDBSidebar textColor="black" backgroundColor="white" className='sidebar'>
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <img src={logo} alt="logo"
                />
@@ -43,10 +45,10 @@ const NavBar = ({ user, handleLogout }) => {
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
             <NavLink exact to="/" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="envelope" style={{ color: 'black' }}>Dashboard</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="th-large" style={{ color: 'black' }}>Dashboard</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/modules" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table" style={{ color: 'black' }}>Modules</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="book" style={{ color: 'black' }}>Modules</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Events Center</CDBSidebarMenuItem>

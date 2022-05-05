@@ -12,7 +12,7 @@ const LoginPage = props => {
   return (
     <main className={styles.container}>
       <div id={styles.header}>
-        <h1 id={styles.headerText}>Entrepreneur Sign In</h1>
+        <h1 id={styles.headerText}>Sign In</h1>
         <div id={styles.logo}></div>
       </div>
       <p id={styles.error}>{message}</p>
