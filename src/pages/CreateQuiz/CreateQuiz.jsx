@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom'
 import styles from './CreateQuiz.module.css'
 function CreateQuiz({ createQuiz }) {
-
+  // Constants & State
   const [formData, setFormData] = useState({})
   const [validForm, setValidForm] = useState(false)
   const [correctAnswers, setCorrectAnswers] = useState({})
@@ -11,7 +12,9 @@ function CreateQuiz({ createQuiz }) {
   const question3Options = useRef()
   const question4Options = useRef()
   const question5Options = useRef()
+  const location = useLocation()
 
+  // Helper Functions
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value })
     console.log(formData)
@@ -43,7 +46,7 @@ function CreateQuiz({ createQuiz }) {
     }
     console.log(correctAnswers)
     let questionData = [q1Data, q2Data, q3Data, q4Data, q5Data]
-    return createQuiz({ questions: questionData, answers: [correctAnswers] })
+    return createQuiz({ questions: questionData, answers: [correctAnswers], module: location.state, name: formData.name })
   }
 
   useEffect(() => {
@@ -52,9 +55,10 @@ function CreateQuiz({ createQuiz }) {
 
   return (
     <div style={{ width: '100%', margin: '30px' }}>
-      <h1>This is a quiz</h1>
+      <h1>Create A Quiz</h1>
       <form ref={formElement} onSubmit={handleSubmit}>
-
+        <h3>Quiz Name</h3>
+        <input type="text" name="name" onChange={handleChange} />
         {/* Question 1 */}
         <p>Question 1</p>
         <textarea
